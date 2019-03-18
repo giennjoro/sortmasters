@@ -39,7 +39,6 @@
                             <thead>
                                 <tr>
                                 <th>Name </th>
-                                <th>Email</th>
                                 <th>View</th>
                                 <th>Remove</th>
                                 </tr>
@@ -48,7 +47,6 @@
                                 @foreach($admins as $admin)
                                 <tr class="odd">
                                 <td>{{$admin->name}}</td>
-                                <td>{{ $admin->email }}</td>
                                 <td>
                                     <a href='/administrator/users/{{$admin->slug}}' ><button class="btn btn-success fa fa-eye"> View</button></a>
                                 </td>

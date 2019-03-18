@@ -21,7 +21,6 @@
                         <p>Add a new user here </p>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -41,9 +40,6 @@
                         <input name='email' type="email" class="form-control" required>
                         <label><span style="color:red;">*</span>User's Email</label>
                     </div>
-
-
-
                     <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i> Add User</button>
                 </form>
             </div>

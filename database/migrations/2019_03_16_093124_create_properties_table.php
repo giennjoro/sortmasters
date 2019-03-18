@@ -17,11 +17,13 @@ class CreatePropertiesTable extends Migration
             $table->increments('id');
 
             $table->string('title');
+            $table->string('slug')->nullable();
+            $table->string('location');
             $table->string('status')->default('sale');
             $table->string('price');
-            $table->string('image');
+            $table->longtext('image');
             $table->text('description');
-            $table->integer('agent_id');
+            $table->integer('agent_id')->nullable();
             $table->integer('category_id');
 
             $table->timestamps();

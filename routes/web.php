@@ -41,13 +41,13 @@ Route::group(['prefix' => 'administrator', 'middleware' => ['auth',]], function(
     Route::get('/home', 'HomeController@index')->name('dashboard');
     Route::get('/', 'HomeController@index')->name('admin.home');
     Route::resource('/users', 'UsersController');
-    // Route::get('/admin/add_admin/create', 'UsersController@add_admin')->name('add_admin');
-    Route::post('/users/add_admin/store', 'UsersController@admin_store')->name('admin.store');
     Route::post('/users/edit/{slug}', 'UsersController@update')->name('admin.update');
     Route::resource('/subscribers','SubscribersController');
     Route::resource('/applications','ApplicationsController');
     Route::resource('/jobs','JobsController');
     Route::resource('/properties','PropertiesController');
+    Route::get('/properties/{property}/{image}/make-cover-photo','PropertiesController@cover_photo')->name('cover_photo');
+    Route::get('/properties/{property}/{image}/delete-photo','PropertiesController@delete_photo')->name('delete_photo');
 });
 Route::get('/administrator', 'HomeController@index')->name('admin.login');
 //subscriber store

@@ -102,7 +102,7 @@ class UsersController extends Controller
             return redirect()->back();
         }
         if($user == null){
-            Session::flash('error', 'Couldn\'t find user! Please try again.');
+            Session::flash('error', 'Sorry, we couldn\'t find the admin! Please try again.');
             return redirect()->route('users.index');
         }
         return view('admin.users.show')->with('user', $user);
@@ -158,6 +158,8 @@ class UsersController extends Controller
 
             $user->name = $request->name;
             $user->email = $request->email;
+            $new_slug = str_slug($request->name) . $user->id;
+            $user->slug = $new_slug;
 
             if($request->is_supper == true){
                 $is_supper = true;
@@ -169,7 +171,7 @@ class UsersController extends Controller
             if(Auth::user()->is_supper){
 
 
-                if($request->is_supper == false && User::where('is_supper', true)->count() == 1 && $user->is_supper == true){
+                if($request->is_supper == false && User::where('is_supper', true)->where('view', true)->count() == 1 && $user->is_supper == true){
                     Session::flash('error', 'Sorry, you are the ONLY REMAINING supper admin!');
                     return redirect()->back();
                 }
@@ -184,7 +186,7 @@ class UsersController extends Controller
 
             if($result){
                 Session::flash('success', 'You successifully updated the admin profile.');
-                return redirect()->route('users.show', ['slug' => $slug]);
+                return redirect()->route('users.show', ['slug' => $new_slug]);
             }
 
             Session::flash('error', 'You could not update the admin profile.');

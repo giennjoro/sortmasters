@@ -27,7 +27,7 @@
                                     {{ $user->name }}'s Profile |
                                     <small>
                                         @if($user->is_supper)
-                                            supper
+                                            supper admin
                                         @else
                                             ordinary admin
                                         @endif
