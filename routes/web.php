@@ -48,6 +48,7 @@ Route::group(['prefix' => 'administrator', 'middleware' => ['auth',]], function(
     Route::resource('/categories','CategoriesController');
     Route::resource('/events','EventsController');
     Route::get('/upcoming_events','EventsController@upcoming_events')->name('upcoming_events');
+    Route::resource('/agents','AgentController');
 });
 Route::get('/administrator', 'HomeController@index')->name('admin.login');
 //subscriber store

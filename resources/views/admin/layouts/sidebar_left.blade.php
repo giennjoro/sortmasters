@@ -56,6 +56,21 @@
 
             <li class="nav-item ">
                 <a href="javascript:void(0)" class="menudropdown nav-link">
+                    <i class="icon fa fa-users"></i> Agents
+                    <i class="arrow fa fa-angle-down"></i>
+                </a>
+                <ul class="nav flex-column nav-second-level">
+                    <li class="nav-item">
+                        <a href="/administrator/agents/create" class="nav-link "> <i class="fa fa-plus"></i> Add Agent</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/administrator/agents"> <i class="fa fa-users"></i> View All Agents</a>
+                    </li>
+                </ul>
+                <!-- .nav-second-level / -->
+            </li>
+            <li class="nav-item ">
+                <a href="javascript:void(0)" class="menudropdown nav-link">
                     <i class="icon fa fa-users"></i> Events
                     <i class="arrow fa fa-angle-down"></i>
                 </a>
