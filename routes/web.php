@@ -17,25 +17,24 @@ Route::get('/welcome', function () {
 });
 
 //pages routes
-Route::get('/apply/{job}', 'ApplicationsController@apply')->middleware('applicant');
-Route::get('/', 'PagesController@index');
-Route::get('/jobs','PagesController@jobs');
-Route::get('/about','PagesController@about');
-Route::get('/application','PagesController@application');
-Route::get('/profile','PagesController@profile');
-Route::get('/contact','PagesController@contact');
-Route::post('/client_application/save','ApplicationsController@store')->name('store_application');
-Route::post('/subscribe', 'SubscribersController@subscribe')->name('subscribe');
-
-
+// Route::get('/apply/{job}', 'ApplicationsController@apply')->middleware('applicant');
+// Route::get('/', 'PagesController@index');
+// Route::get('/jobs','PagesController@jobs');
+// Route::get('/about','PagesController@about');
+// Route::get('/application','PagesController@application');
+// Route::get('/profile','PagesController@profile');
+// Route::get('/contact','PagesController@contact');
+// Route::post('/client_application/save','ApplicationsController@store')->name('store_application');
+// Route::post('/subscribe', 'SubscribersController@subscribe')->name('subscribe');
+// 
+// 
 Route::get('/home', 'HomeController@index')->name('home');
+// 
+// Route::get('/show/{job}', 'JobsController@client_show');
+// Route::get('/search/jobs', 'JobsController@search_jobs');
 
-Route::get('/show/{job}', 'JobsController@client_show');
-Route::get('/search/jobs', 'JobsController@search_jobs');
-
-
-Route::resource('/applications', 'ApplicationsController');
-Auth::routes(['verify' => true]);
+// Route::resource('/applications', 'ApplicationsController');
+Auth::routes();
 
 Route::group(['prefix' => 'administrator', 'middleware' => ['auth',]], function(){
     Route::get('/home', 'HomeController@index')->name('dashboard');
@@ -43,25 +42,19 @@ Route::group(['prefix' => 'administrator', 'middleware' => ['auth',]], function(
     Route::resource('/users', 'UsersController');
     Route::post('/users/edit/{slug}', 'UsersController@update')->name('admin.update');
     Route::resource('/subscribers','SubscribersController');
-    Route::resource('/applications','ApplicationsController');
-    Route::resource('/jobs','JobsController');
     Route::resource('/properties','PropertiesController');
     Route::get('/properties/{property}/{image}/make-cover-photo','PropertiesController@cover_photo')->name('cover_photo');
     Route::get('/properties/{property}/{image}/delete-photo','PropertiesController@delete_photo')->name('delete_photo');
     Route::resource('/categories','CategoriesController');
+    Route::resource('/events','EventsController');
+    Route::get('/upcoming_events','EventsController@upcoming_events')->name('upcoming_events');
 });
 Route::get('/administrator', 'HomeController@index')->name('admin.login');
 //subscriber store
-Route::post('/subscribe', 'PagesController@subscriber_store');
+// Route::post('/subscribe', 'PagesController@subscriber_store');
 
 //contact Us
-Route::post('/contact-us', 'ContactController@store');
-
-
-
-
-
-
+// Route::post('/contact-us', 'ContactController@store');
 
 
 

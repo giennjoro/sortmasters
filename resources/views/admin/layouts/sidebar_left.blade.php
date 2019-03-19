@@ -40,7 +40,7 @@
 
             <li class="nav-item ">
                 <a href="javascript:void(0)" class="menudropdown nav-link">
-                    <i class="icon fa fa-category"></i> Categories
+                    <i class="icon fa fa-list-ul"></i> Categories
                     <i class="arrow fa fa-angle-down"></i>
                 </a>
                 <ul class="nav flex-column nav-second-level">
@@ -48,26 +48,26 @@
                         <a href="/administrator/categories/create" class="nav-link "> <i class="fa fa-plus"></i> Add Category</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/administrator/categories"> <i class="fa fa-category"></i> View Categories</a>
+                        <a class="nav-link" href="/administrator/categories"> <i class="fa fa-list-ul"></i> View Categories</a>
                     </li>
                 </ul>
                 <!-- .nav-second-level / -->
             </li>
 
-            <li class="nav-item">
-                <a href="/administrator/applications" target="_self"><i class="icon fa fa-university"></i> Applications</a>
-            </li>
             <li class="nav-item ">
                 <a href="javascript:void(0)" class="menudropdown nav-link">
-                    <i class="icon fa fa-users"></i> Subscribers
+                    <i class="icon fa fa-users"></i> Events
                     <i class="arrow fa fa-angle-down"></i>
                 </a>
                 <ul class="nav flex-column nav-second-level">
                     <li class="nav-item">
-                        <a href="/administrator/subscribers/create" class="nav-link "> <i class="fa fa-plus"></i> Add Subscriber</a>
+                        <a href="/administrator/events/create" class="nav-link "> <i class="fa fa-plus"></i> Add Event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/administrator/subscribers"> <i class="fa fa-users"></i> View Subscribers</a>
+                        <a class="nav-link" href="{{ route('upcoming_events') }}"> <i class="fa fa-users"></i> Upcoming Events</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/administrator/events"> <i class="fa fa-users"></i> View All Events</a>
                     </li>
                 </ul>
                 <!-- .nav-second-level / -->

@@ -86,8 +86,8 @@
                         <div class="card-body">
                             <div class="media mb-2">
                                 <div class="media-body">
-                                    <h4>{{ $subscribers }}</h4>
-                                    <p class="text-uppercase">Subscribers</p>
+                                    <h4>Events</h4>
+                                    <p class="text-uppercase">Events</p>
                                 </div>
                                 <span class="icon fa fa-users"></span>
                             </div>
