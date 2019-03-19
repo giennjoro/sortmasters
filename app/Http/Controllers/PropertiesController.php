@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Property;
+use App\Category;
 use Image;
 use Session;
 use File;
@@ -29,8 +30,12 @@ class PropertiesController extends Controller
      */
     public function create()
     {
-        //
-        return  view('admin.properties.create');
+        $count = Category::count();
+        if($count == 0){
+            return redirect()->route('categories.create')->with('error', 'Sorry, there are no categories. Please add a category first.');
+        }
+        $categories = Category::all();
+        return view('admin.properties.create')->with('categories', $categories);
     }
 
     /**
@@ -110,10 +115,12 @@ class PropertiesController extends Controller
      */
     public function edit(Property $property)
     {
-        return view('admin.properties.edit', ['property' => $property]);
+        $categories = Category::all();
+        return view('admin.properties.edit', ['property' => $property, 'categories'=> $categories]);
     }
 
-    public function cover_photo(Property $property, $cover_image){
+    public function cover_photo(Property $property, $cover_image)
+    {
         $images = json_decode($property->image);
         $temp = $images[0];
         $images[0] = $images[$cover_image];
@@ -124,11 +131,17 @@ class PropertiesController extends Controller
         return redirect()->back();
     }
 
-    public function delete_photo(Property $property, $image){
+    public function delete_photo(Property $property, $image)
+    {
         $images = json_decode($property->image);
         File::delete($images[$image]);
-        unset($images[$image]);
-        $property->image = json_encode($images);
+        foreach($images as $img){
+            if($images[$image] == $img){
+                continue;
+            }
+            $data[] = $img;
+        }
+        $property->image = json_encode($data);
         $property->save();
         Session::flash('success', 'You successifuly removed the image.');
         return redirect()->back();

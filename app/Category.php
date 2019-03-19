@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Property extends Model
+class Category extends Model
 {
     //
     protected $guarded = [];
@@ -13,7 +13,7 @@ class Property extends Model
         return 'slug';
     }
 
-    public function category(){
-        return $this->belongsTo('App\Category');
+    public function properties(){
+        return $this->hasMany('App\Property');
     }
 }

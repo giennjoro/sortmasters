@@ -88,7 +88,7 @@
 										<div class="media">
 											<div class="media-body">
 												<h5>Category</h5>
-												{{ $property->category }}
+												{{ $property->category->name }}
 											</div>
 										</div>
 									</div>

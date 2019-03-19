@@ -69,7 +69,9 @@
                     <div class="form-group float-label">
                         <select name="category_id" class="form-control" required>
                             <option value="{{ null }}"><span style="color: red">*</span>Select Category</option>
-                            <option value="1">Category 2</option>
+                            @foreach($categories as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group increment">

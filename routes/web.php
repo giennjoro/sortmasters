@@ -48,6 +48,7 @@ Route::group(['prefix' => 'administrator', 'middleware' => ['auth',]], function(
     Route::resource('/properties','PropertiesController');
     Route::get('/properties/{property}/{image}/make-cover-photo','PropertiesController@cover_photo')->name('cover_photo');
     Route::get('/properties/{property}/{image}/delete-photo','PropertiesController@delete_photo')->name('delete_photo');
+    Route::resource('/categories','CategoriesController');
 });
 Route::get('/administrator', 'HomeController@index')->name('admin.login');
 //subscriber store

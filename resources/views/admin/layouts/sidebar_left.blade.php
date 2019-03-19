@@ -38,6 +38,22 @@
                 <!-- .nav-second-level / -->
             </li>
 
+            <li class="nav-item ">
+                <a href="javascript:void(0)" class="menudropdown nav-link">
+                    <i class="icon fa fa-category"></i> Categories
+                    <i class="arrow fa fa-angle-down"></i>
+                </a>
+                <ul class="nav flex-column nav-second-level">
+                    <li class="nav-item">
+                        <a href="/administrator/categories/create" class="nav-link "> <i class="fa fa-plus"></i> Add Category</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/administrator/categories"> <i class="fa fa-category"></i> View Categories</a>
+                    </li>
+                </ul>
+                <!-- .nav-second-level / -->
+            </li>
+
             <li class="nav-item">
                 <a href="/administrator/applications" target="_self"><i class="icon fa fa-university"></i> Applications</a>
             </li>
