@@ -62,8 +62,9 @@
                     <div class="form-group float-label">
                         <select name="agent_id" class="form-control">
                             <option value= "{{ null }}">Select Agent</option>
-                            <option value="1">Agent 1</option>
-                            <option value="1">Agent 2</option>
+                            @foreach($agents as $agent)
+                                <option value="{{ $agent->id }}">{{ $agent->name }}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group float-label">

@@ -20,186 +20,38 @@
             <div class="row">
                 <div class="col-lg-8 col-md-12">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="property-box">
-                                <div class="property-thumbnail">
-                                    <a href="/show_property" class="property-img">
-                                        <div class="tag">rent</div>
-                                        <div class="price-box"><span>$850.00</span>month</div>
-                                        <img class="d-block w-100" src="{{ asset('client/img/properties/properties-1.jpg') }}" alt="properties">
-                                    </a>
-                                </div>
-                                <div class="detail">
-                                    <h1 class="title">
-                                        <a href="/show-property">Relaxing Apartment</a>
-                                    </h1>
-                                    {{-- <div class="location">
-                                        <a href="properties-details.html">
-                                            <i class="flaticon-pin"></i> location here,
+                        @foreach($properties as $property)
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="property-box">
+                                    <div class="property-thumbnail">
+                                        <a href="/show_property" class="property-img">
+                                            <div class="tag">@if($property->status == "rent")rent @elseif($property->status == "sale")sale @endif</div>
+                                            <div class="price-box"><span>Ksh {{ $property->price }} </span>@if($property->status == "rent")monthly @endif</div>
+                                            <img class="d-block w-100" src="{{ asset(json_decode($property->image)[0]) }}" alt="properties">
                                         </a>
-                                    </div> --}}
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <i class="lnr lnr-apartment"></i> Status
-                                        </li>
-                                        <li>
-                                            <i class="flaticon-pin"></i> Location
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-danger fa fa-eye"> More Info</button>
+                                    </div>
+                                    <div class="detail">
+                                        <h1 class="title">
+                                            <a href="/show-property">{{ $property->title }}</a>
+                                        </h1>
+                                        <div class="location">
+                                            <a href="properties-details.html">
+                                                {{ $property->description }} .
+                                            </a>
+                                        </div> 
+                                        <ul class="facilities-list clearfix">
+                                            <li>
+                                                <i class="lnr lnr-apartment"></i> {{ $property->status }}
+                                            </li>
+                                            <li>
+                                                <i class="flaticon-pin"></i> {{ $property->location }}
+                                            </li>
+                                        </ul>
+                                        <a href="{{ route('show_property', ['property' => $property->slug]) }}"><button class="btn btn-danger fa fa-eye"> More Info</button></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="property-box">
-                                <div class="property-thumbnail">
-                                    <a href="/show_property" class="property-img">
-                                        <div class="tag">rent</div>
-                                        <div class="price-box"><span>$850.00</span>month</div>
-                                        <img class="d-block w-100" src="{{ asset('client/img/properties/properties-1.jpg') }}" alt="properties">
-                                    </a>
-                                </div>
-                                <div class="detail">
-                                    <h1 class="title">
-                                        <a href="/show-property">Relaxing Apartment</a>
-                                    </h1>
-                                    {{-- <div class="location">
-                                        <a href="properties-details.html">
-                                            <i class="flaticon-pin"></i> location here,
-                                        </a>
-                                    </div> --}}
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <i class="lnr lnr-apartment"></i> Status
-                                        </li>
-                                        <li>
-                                            <i class="flaticon-pin"></i> Location
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-danger fa fa-eye"> More Info</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="property-box">
-                                <div class="property-thumbnail">
-                                    <a href="/show_property" class="property-img">
-                                        <div class="tag">rent</div>
-                                        <div class="price-box"><span>$850.00</span>month</div>
-                                        <img class="d-block w-100" src="{{ asset('client/img/properties/properties-1.jpg') }}" alt="properties">
-                                    </a>
-                                </div>
-                                <div class="detail">
-                                    <h1 class="title">
-                                        <a href="/show-property">Relaxing Apartment</a>
-                                    </h1>
-                                    {{-- <div class="location">
-                                        <a href="properties-details.html">
-                                            <i class="flaticon-pin"></i> location here,
-                                        </a>
-                                    </div> --}}
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <i class="lnr lnr-apartment"></i> Status
-                                        </li>
-                                        <li>
-                                            <i class="flaticon-pin"></i> Location
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-danger fa fa-eye"> More Info</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="property-box">
-                                <div class="property-thumbnail">
-                                    <a href="/show_property" class="property-img">
-                                        <div class="tag">rent</div>
-                                        <div class="price-box"><span>$850.00</span>month</div>
-                                        <img class="d-block w-100" src="{{ asset('client/img/properties/properties-1.jpg') }}" alt="properties">
-                                    </a>
-                                </div>
-                                <div class="detail">
-                                    <h1 class="title">
-                                        <a href="/show-property">Relaxing Apartment</a>
-                                    </h1>
-                                    {{-- <div class="location">
-                                        <a href="properties-details.html">
-                                            <i class="flaticon-pin"></i> location here,
-                                        </a>
-                                    </div> --}}
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <i class="lnr lnr-apartment"></i> Status
-                                        </li>
-                                        <li>
-                                            <i class="flaticon-pin"></i> Location
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-danger fa fa-eye"> More Info</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="property-box">
-                                <div class="property-thumbnail">
-                                    <a href="/show_property" class="property-img">
-                                        <div class="tag">rent</div>
-                                        <div class="price-box"><span>$850.00</span>month</div>
-                                        <img class="d-block w-100" src="{{ asset('client/img/properties/properties-1.jpg') }}" alt="properties">
-                                    </a>
-                                </div>
-                                <div class="detail">
-                                    <h1 class="title">
-                                        <a href="/show-property">Relaxing Apartment</a>
-                                    </h1>
-                                    {{-- <div class="location">
-                                        <a href="properties-details.html">
-                                            <i class="flaticon-pin"></i> location here,
-                                        </a>
-                                    </div> --}}
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <i class="lnr lnr-apartment"></i> Status
-                                        </li>
-                                        <li>
-                                            <i class="flaticon-pin"></i> Location
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-danger fa fa-eye"> More Info</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-12">
-                            <div class="property-box">
-                                <div class="property-thumbnail">
-                                    <a href="/show_property" class="property-img">
-                                        <div class="tag">rent</div>
-                                        <div class="price-box"><span>$850.00</span>month</div>
-                                        <img class="d-block w-100" src="{{ asset('client/img/properties/properties-1.jpg') }}" alt="properties">
-                                    </a>
-                                </div>
-                                <div class="detail">
-                                    <h1 class="title">
-                                        <a href="/show-property">Relaxing Apartment</a>
-                                    </h1>
-                                    {{-- <div class="location">
-                                        <a href="properties-details.html">
-                                            <i class="flaticon-pin"></i> location here,
-                                        </a>
-                                    </div> --}}
-                                    <ul class="facilities-list clearfix">
-                                        <li>
-                                            <i class="lnr lnr-apartment"></i> Status
-                                        </li>
-                                        <li>
-                                            <i class="flaticon-pin"></i> Location
-                                        </li>
-                                    </ul>
-                                    <button class="btn btn-danger fa fa-eye"> More Info</button>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                     <!-- Page navigation start -->
                     <div class="pagination-box p-box-2 text-center">

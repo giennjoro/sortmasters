@@ -11,6 +11,7 @@ use App\Category;
 
 class PagesController extends Controller
 {
+
     public function index(){
         return view('client.index');
     }
@@ -23,13 +24,16 @@ class PagesController extends Controller
         return view('client.contact');
     }
     public function properties(){
-        return view('client.properties');
+        $properties = Property::all();
+        return view('client.properties')->with('properties', $properties);
     }
     public function events(){
         return view('client.events');
     }
     //should be removed.
-    public function show(){
-        return view('client.show_property');
+    public function show($slug){
+        $property = Property::where('slug', $slug)->first();
+        $images = json_decode($property->image);
+        return view('client.show_property')->with('property', $property)->with('images', $images);
     }
 }

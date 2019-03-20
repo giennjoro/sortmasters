@@ -23,30 +23,48 @@
                         <div id="propertiesDetailsSlider" class="carousel properties-details-sliders slide mb-40">
                             <!-- main slider carousel items -->
                             <div class="carousel-inner">
-                                <div class="active item carousel-item" data-slide-number="0">
-                                    <img src="{{ asset('client/img/properties/properties-1.jpg') }}" class="img-fluid" alt="slider-properties">
+                                <div style="display: none">
+                                    {{ $n = 0 }}
                                 </div>
-                                <div class="item carousel-item" data-slide-number="1">
-                                    <img src="{{ asset('client/img/properties/properties-2.jpg') }}" class="img-fluid" alt="slider-properties">
-                                </div>
-                                <div class="item carousel-item" data-slide-number="2">
-                                    <img src="{{ asset('client/img/properties/properties-3.jpg') }}" class="img-fluid" alt="slider-properties">
-                                </div>
-                                <div class="item carousel-item" data-slide-number="4">
-                                    <img src="{{ asset('client/img/properties/properties-4.jpg') }}" class="img-fluid" alt="slider-properties">
-                                </div>
-                                <div class="item carousel-item" data-slide-number="5">
-                                    <img src="{{ asset('client/img/properties/properties-5.jpg') }}" class="img-fluid" alt="slider-properties">
-                                </div>
+                                @foreach($images as $image)
+                                    @if($n == 0)
+                                        <div class="active item carousel-item" data-slide-number="{{$n}}">
+                                            <img src="{{ asset($image) }}" class="img-fluid" alt="slider-properties">
+                                        </div>
+                                    @else
+                                        <div class="item carousel-item" data-slide-number="{{$n}}">
+                                            <img src="{{ asset($image) }}" class="img-fluid" alt="slider-properties">
+                                        </div>
+                                    @endif
+                                    <div style="display: none">
+                                        {{ $n++  }}
+                                    </div>
+                                @endforeach
                             </div>
                             <!-- main slider carousel nav controls -->
                             <ul class="carousel-indicators smail-properties list-inline nav nav-justified">
-                                <li class="list-inline-item active">
-                                    <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#propertiesDetailsSlider">
-                                        <img src="{{ asset('client/img/properties/properties-1.jpg') }}" class="img-fluid" alt="properties-small">
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
+                                <div style="display: none">
+                                    {{ $n = 0 }}
+                                </div>
+                                @foreach($images as $image)
+                                    @if($n == 0)
+                                        <li class="list-inline-item active">
+                                            <a id="carousel-selector-{{$n}}" class="selected" data-slide-to="{{$n}}" data-target="#propertiesDetailsSlider">
+                                                <img src="{{ asset($image) }}" class="img-fluid" alt="properties-small">
+                                            </a>
+                                        </li>
+                                    @else
+                                        <li class="list-inline-item">
+                                            <a id="carousel-selector-{{$n}}" data-slide-to="{{$n}}" data-target="#propertiesDetailsSlider">
+                                                <img src="{{ asset($image) }}" class="img-fluid" alt="properties-small">
+                                            </a>
+                                        </li>
+                                    @endif
+                                    <div style="display: none">
+                                        {{ $n++  }}
+                                    </div>
+                                @endforeach
+                                <!-- <li class="list-inline-item">
                                     <a id="carousel-selector-1" data-slide-to="1" data-target="#propertiesDetailsSlider">
                                         <img src="{{ asset('client/img/properties/properties-2.jpg') }}" class="img-fluid" alt="properties-small">
                                     </a>
@@ -65,11 +83,11 @@
                                     <a id="carousel-selector-4" data-slide-to="4" data-target="#propertiesDetailsSlider">
                                         <img src="{{ asset('client/img/properties/properties-5.jpg') }}" class="img-fluid" alt="properties-small">
                                     </a>
-                                </li>
+                                </li> -->
                             </ul>
                             <div class="heading-properties-2">
-                                <h3>Relaxing Apartment</h3>
-                                <div class="price-location"><span class="property-price">$35,0000</span> <span class="rent">status</span> <span class="location"><i class="flaticon-pin"></i> Location Here</span></div>
+                                <h3>{{ $property->title }}</h3>
+                                <div class="price-location"><span class="property-price">Ksh {{ $property->price }}</span> <span class="rent">{{ $property->status }}</span> <span class="location"><i class="flaticon-pin"></i> {{ $property->location }}</span></div>
                             </div>
                         </div>
                         <!-- Advanced search start -->
@@ -197,22 +215,24 @@
                                 </div>
                             </form>
                         </div>
-                        <div class="widget recent-properties">
-                            <h3 class="sidebar-title">Property Agent</h3>
-                            <div class="media mb-4">
-                                <a class="pr-3" href="properties-details.html">
-                                    <img class="media-object" src="{{ asset('client/img/properties/small-properties-1.jpg') }}" alt="agent">
-                                </a>
-                                <div class="media-body align-self-center">
-                                    <h5>
-                                        <a href="properties-grid-rightside.html">Agent Name</a>
-                                    </h5>
-                                    <div class="listing-post-meta">
-                                        <p><i class="fa fa-phone"></i> Phone Number</p>
+                        @if($property->agent()->count() != 0)
+                            <div class="widget recent-properties">
+                                <h3 class="sidebar-title">Property Agent</h3>
+                                <div class="media mb-4">
+                                    <a class="pr-3" href="properties-details.html">
+                                        <img class="media-object" src="{{ asset($property->agent->image) }}" alt="agent">
+                                    </a>
+                                    <div class="media-body align-self-center">
+                                        <h5>
+                                            <a href="properties-grid-rightside.html">{{ $property->agent->name }}</a>
+                                        </h5>
+                                        <div class="listing-post-meta">
+                                            <p><i class="fa fa-phone"></i> {{ $property->agent->phone }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        @endif
                         <!-- Tabbing box start -->
                         <div class="tabbing tabbing-box mb-40">
                             <ul class="nav nav-tabs" id="carTab" role="tablist">
@@ -223,10 +243,7 @@
                             <div class="tab-content" id="carTabContent">
                                 <div class="tab-pane fade active show" id="one" role="tabpanel" aria-labelledby="one-tab">
                                     <div class="properties-description mb-50">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas in pulvinar neque. Nulla finibus lobortis pulvinar. Donec a consectetur nulla. Nulla posuere sapien vitae lectus suscipit, et pulvinar nisi tincidunt. Aliquam erat volutpat. Curabitur convallis fringilla diam sed aliquam. Sed tempor iaculis massa faucibus feugiat. In fermentum facilisis massa, a consequat purus viverra a. Aliquam pellentesque nibh et nibh feugiat gravida. Maecenas ultricies, diam vitae semper placerat, velit risus accumsan nisl, eget tempor lacus est vel nunc. Proin accumsan elit sed neque euismod fringilla. Curabitur lobortis nunc velit, et fermentum urna dapibus non. Vivamus magna lorem, elementum id gravida ac, laoreet tristique augue. Maecenas dictum lacus eu nunc porttitor, ut hendrerit arcu efficitur.</p>
-                                        <p>Aliquam ultricies nunc porta metus interdum mollis. Donec porttitor libero augue, vehicula tincidunt lectus placerat a. Sed tincidunt dolor non sem dictum dignissim. Nulla vulputate orci felis, ac ornare purus ultricies a. Fusce euismod magna orci, sit amet aliquam turpis dignissim ac. In at tortor at ligula pharetra sollicitudin. Sed tincidunt, purus eget laoreet elementum, felis est pharetra ante, tincidunt feugiat libero enim sed risus.
-    
-                                            Sed at leo sit amet mi bibendum aliquam. Interdum et malesuada fames ac ante ipsum primis in faucibus. Praesent cursus varius odio, non faucibus dui. Nunc vehicula lectus sed velit suscipit aliquam vitae eu ipsum. adipiscing elit.</p>
+                                        <p>{{ $property->description }}
                                     </div>
                                 </div>
                             </div>

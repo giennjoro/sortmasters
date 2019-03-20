@@ -136,37 +136,28 @@
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                     <div class="recent-properties footer-item">
                         <h4>Upcoming Events</h4>
-                        <div class="media mb-4">
-                            <div class="media-body align-self-center">
-                                <h5>
-                                    <a href="javascript:void(0)">Event Name</a>
-                                </h5>
-                                <div class="listing-post-meta">
-                                    <a href="javascript:void(0)"><i class="fa fa-calendar"></i> Oct 27, 2018 </a>
+                            @if($global_events->count() == 0)
+                                <div class="media mb-4">
+                                    <div class="media-body align-self-center">
+                                        <h5>
+                                            There are currently no upcoming events.
+                                        </h5>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="media mb-4">
-                            <div class="media-body align-self-center">
-                                <h5>
-                                    <a href="javascript:void(0)">Event Name</a>
-                                </h5>
-                                <div class="listing-post-meta">
-                                    <a href="javascript:void(0)"><i class="fa fa-calendar"></i> Oct 27, 2018 </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="media mb-4">
-                            <div class="media-body align-self-center">
-                                <h5>
-                                    <a href="javascript:void(0)">Event Name</a>
-                                </h5>
-                                <div class="listing-post-meta">
-                                    <a href="javascript:void(0)"><i class="fa fa-calendar"></i> Oct 27, 2018 </a>
-                                </div>
-                            </div>
-                        </div>
-                        
+                            @else
+                                @foreach($global_events as $event)
+                                    <div class="media mb-4">
+                                        <div class="media-body align-self-center">
+                                            <h5>
+                                                <a href="javascript:void(0)">{{ $event->title }}</a>
+                                            </h5>
+                                            <div class="listing-post-meta">
+                                                <a href="javascript:void(0)"><i class="fa fa-calendar"></i> {{ $event->date->format('d') . " " . $event->date->format('M') . " " . $event->date->format('Y')}} </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforeach
+                            @endif
                     </div>
                 </div>
                 <div class="col-xl-12 col-lg-12">
