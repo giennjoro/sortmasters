@@ -197,6 +197,22 @@
                                 </div>
                             </form>
                         </div>
+                        <div class="widget recent-properties">
+                            <h3 class="sidebar-title">Property Agent</h3>
+                            <div class="media mb-4">
+                                <a class="pr-3" href="properties-details.html">
+                                    <img class="media-object" src="{{ asset('client/img/properties/small-properties-1.jpg') }}" alt="agent">
+                                </a>
+                                <div class="media-body align-self-center">
+                                    <h5>
+                                        <a href="properties-grid-rightside.html">Agent Name</a>
+                                    </h5>
+                                    <div class="listing-post-meta">
+                                        <p><i class="fa fa-phone"></i> Phone Number</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         <!-- Tabbing box start -->
                         <div class="tabbing tabbing-box mb-40">
                             <ul class="nav nav-tabs" id="carTab" role="tablist">

@@ -53,7 +53,7 @@
                                     {{ Form::hidden('_method' ,'DELETE')}}
                                     <div class="form-input">
                                         <button style="background:none; padding:0; color:red; border:none;" type="submit"><i class="fa fa-trash"></i></button>
-                                        <a href="{{ route('agents.edit', ['id' => $agent->id]) }}" class="btn btn-info btn-sm" style="background-color: transparent; border: 0px" ><i class="fa fa-eye" style="color: green"></i></a>
+                                        <a href="{{ route('agents.edit', ['id' => $agent->id]) }}" class="btn btn-info btn-sm" style="background-color: transparent; border: 0px" ><i class="fa fa-edit" style="color: green"></i></a>
                                     </div>
                                 {!! Form::close() !!}
                                 </td>

@@ -44,7 +44,7 @@
                     </div>
                     <div class="form-group increment">
                         <label><span style="color: red"></span>Agent Image</label>
-                        <input name='agent_image' type="file" class="form-control" required>
+                        <input name='agent_image' type="file" class="form-control">
                     </div>
                     <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i> Save Changes</button>
                 </form>
