@@ -57,14 +57,14 @@
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
                     <div class="card mb-3 border-0 rounded-0 bg-success">
-                        <span class="icon-background fa fa-users"></span>
+                        <span class="icon-background fa fa-building"></span>
                         <div class="card-body">
                             <div class="media mb-2">
                                 <div class="media-body">
-                                    <h4>$users</h4>
-                                    <p class="text-uppercase">Applicants</p>
+                                    <h4>{{ $properties }}</h4>
+                                    <p class="text-uppercase">Properties</p>
                                 </div>
-                                <span class="icon fa fa-users"></span>
+                                <span class="icon fa fa-building"></span>
                             </div>
                             <div class="row">
                                 <div class="col">
@@ -82,14 +82,14 @@
                 </div>
                 <div class="col-sm-12 col-md-6 col-lg-4 col-xl-4">
                     <div class="card mb-3 border-0 rounded-0 bg-warning">
-                        <span class="icon-background fa fa-users"></span>
+                        <span class="icon-background fa fa-calendar"></span>
                         <div class="card-body">
                             <div class="media mb-2">
                                 <div class="media-body">
-                                    <h4>Events</h4>
+                                    <h4>{{ $events }}</h4>
                                     <p class="text-uppercase">Events</p>
                                 </div>
-                                <span class="icon fa fa-users"></span>
+                                <span class="icon fa fa-calendar"></span>
                             </div>
                             <div class="row">
                                 <div class="col">
@@ -110,8 +110,8 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h2 class="f-light">{{ $applications }}</h2>
-                                    <p class="mb-0">Applications</p>
+                                    <h2 class="f-light">{{ $upcoming_events }}</h2>
+                                    <p class="mb-0">Upcoming Events</p>
                                 </div>
                                 <span class="icon fa fa-check-circle"></span>
                             </div>
@@ -126,8 +126,8 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h2 class="f-light">{{ $jobs }}</h2>
-                                    <p class="mb-0">Jobs</p>
+                                    <h2 class="f-light">$agents</h2>
+                                    <p class="mb-0">Agents</p>
                                 </div>
                                 <span class="icon fa fa-exclamation-circle"></span>
                             </div>
@@ -142,8 +142,8 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h2 class="f-light">contacts</h2>
-                                    <p class="mb-0">Contact Messages</p>
+                                    <h2 class="f-light">{{ $categories }}</h2>
+                                    <p class="mb-0">Categories</p>
                                 </div>
                                 <span class="icon fa fa-info-circle"></span>
                             </div>

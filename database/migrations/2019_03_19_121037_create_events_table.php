@@ -18,7 +18,7 @@ class CreateEventsTable extends Migration
             $table->string('title');
             $table->text('description');
             $table->integer('user_id');
-            $table->string('date');
+            $table->date('date');
             $table->date('expiry_date')->nullable();
             $table->string('slug');
             $table->timestamps();

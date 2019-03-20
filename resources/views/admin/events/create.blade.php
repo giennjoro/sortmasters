@@ -39,17 +39,16 @@
                     </div>
                     <div class="form-group float-label">
                         <span style="color: red">*</span>
-                        <textarea name='description' type="text" class="form-control" rows="6" required></textarea>
-                        <label>Description</label>
+                        <textarea name='description' type="text" class="form-control" rows="6" maxlength="100" required></textarea>
+                        <label>Description (Maximum of 100 characters)</label>
                     </div>
                     <div class="form-group float-label">
                         <span style="color: red">*</span>
-                        <input name='date' type="text" class="form-control" required>
+                        <input name='date' type="date" class="form-control" required>
                         <label>Event Date</label>
                     </div>
                     <div class="form-group float-label">
-                        <span style="color: red">*</span>
-                        <input name='expiry_date' type="date" class="form-control" required>
+                        <input name='expiry_date' type="date" class="form-control">
                         <label>Expiry Date (mm/dd/yyyy)</label>
                     </div>
                     <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i> Add Event</button>
