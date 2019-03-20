@@ -16,24 +16,18 @@ Route::get('/welcome', function () {
     return view('welcome');
 });
 
-//pages routes
-// Route::get('/apply/{job}', 'ApplicationsController@apply')->middleware('applicant');
-// Route::get('/', 'PagesController@index');
-// Route::get('/jobs','PagesController@jobs');
-// Route::get('/about','PagesController@about');
-// Route::get('/application','PagesController@application');
-// Route::get('/profile','PagesController@profile');
-// Route::get('/contact','PagesController@contact');
-// Route::post('/client_application/save','ApplicationsController@store')->name('store_application');
-// Route::post('/subscribe', 'SubscribersController@subscribe')->name('subscribe');
-// 
-// 
-Route::get('/home', 'HomeController@index')->name('home');
-// 
-// Route::get('/show/{job}', 'JobsController@client_show');
-// Route::get('/search/jobs', 'JobsController@search_jobs');
+//client side page routes.
+Route::get('/', 'PagesController@index');
+Route::get('/about', 'PagesController@about');
+Route::get('/contact', 'PagesController@contact');
+Route::get('/properties','PagesController@properties');
+Route::get('/events','PagesController@events');
+Route::get('/show_property','PagesController@show');//for viewing purpose only.This route should be removed.
 
-// Route::resource('/applications', 'ApplicationsController');
+
+//admin routes
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/administrator', 'HomeController@index')->name('admin.login');
 Auth::routes();
 
 Route::group(['prefix' => 'administrator', 'middleware' => ['auth',]], function(){
@@ -48,13 +42,10 @@ Route::group(['prefix' => 'administrator', 'middleware' => ['auth',]], function(
     Route::resource('/categories','CategoriesController');
     Route::resource('/events','EventsController');
     Route::get('/upcoming_events','EventsController@upcoming_events')->name('upcoming_events');
+    Route::resource('/agents','AgentController');
 });
-Route::get('/administrator', 'HomeController@index')->name('admin.login');
-//subscriber store
-// Route::post('/subscribe', 'PagesController@subscriber_store');
 
-//contact Us
-// Route::post('/contact-us', 'ContactController@store');
+
 
 
 

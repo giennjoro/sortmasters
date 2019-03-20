@@ -29,6 +29,7 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index(){
+
         $admins = User::where('view', true)->count();
         $categories = Category::all()->count();
         // $agents = Agent::all()->count();

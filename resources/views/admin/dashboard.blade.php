@@ -36,7 +36,7 @@
                     <div class="card-body">
                         <div class="media mb-2">
                             <div class="media-body">
-                                <h4>{{ $admins }}</h4>
+                                <h4>3</h4>
                                 <p class="text-uppercase">Admins</p>
                             </div>
                             <span class="icon fa fa-users"></span>
@@ -61,8 +61,10 @@
                         <div class="card-body">
                             <div class="media mb-2">
                                 <div class="media-body">
+
                                     <h4>{{ $properties }}</h4>
                                     <p class="text-uppercase">Properties</p>
+
                                 </div>
                                 <span class="icon fa fa-building"></span>
                             </div>
