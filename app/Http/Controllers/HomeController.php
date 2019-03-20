@@ -32,14 +32,14 @@ class HomeController extends Controller
 
         $admins = User::where('view', true)->count();
         $categories = Category::all()->count();
-        // $agents = Agent::all()->count();
+        $agents = Agent::all()->count();
         $properties = Property::all()->count();
         $events = Event::all()->count();
         $upcoming_events = Event::all()->where('expiry_date', '>=', date('Y-m-d H:i:s'))->count();
         return view('admin.dashboard')->with('admins', $admins)
                                       ->with('events', $events)
                                       ->with('categories', $categories)
-                                    //->with('agents', $agents)
+                                    ->with('agents', $agents)
                                       ->with('properties', $properties)
                                       ->with('upcoming_events', $upcoming_events)
         ;

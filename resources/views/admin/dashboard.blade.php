@@ -36,7 +36,7 @@
                     <div class="card-body">
                         <div class="media mb-2">
                             <div class="media-body">
-                                <h4>3</h4>
+                                <h4>{{ $admins }}</h4>
                                 <p class="text-uppercase">Admins</p>
                             </div>
                             <span class="icon fa fa-users"></span>
@@ -128,7 +128,7 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h2 class="f-light">$agents</h2>
+                                    <h2 class="f-light">{{ $agents }}</h2>
                                     <p class="mb-0">Agents</p>
                                 </div>
                                 <span class="icon fa fa-exclamation-circle"></span>

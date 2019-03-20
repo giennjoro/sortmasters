@@ -134,8 +134,9 @@ class AgentController extends Controller
 
        
         $image = $agent->image;
-        $agent->delete();
-
+        if($agent->image != "default/download.jpg"){
+            $agent->delete();
+        }
         File::delete($image);
 
         return redirect('/administrator/agents')->with('success','Agent Deleted Successfully');
