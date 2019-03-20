@@ -36,7 +36,7 @@
                     <div class="card-body">
                         <div class="media mb-2">
                             <div class="media-body">
-                                <h4>{{ $admins }}</h4>
+                                <h4>3</h4>
                                 <p class="text-uppercase">Admins</p>
                             </div>
                             <span class="icon fa fa-users"></span>
@@ -61,7 +61,7 @@
                         <div class="card-body">
                             <div class="media mb-2">
                                 <div class="media-body">
-                                    <h4>$users</h4>
+                                    <h4></h4>
                                     <p class="text-uppercase">Applicants</p>
                                 </div>
                                 <span class="icon fa fa-users"></span>
@@ -110,7 +110,7 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h2 class="f-light">{{ $applications }}</h2>
+                                    <h2 class="f-light">test</h2>
                                     <p class="mb-0">Applications</p>
                                 </div>
                                 <span class="icon fa fa-check-circle"></span>
@@ -126,7 +126,7 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <h2 class="f-light">{{ $jobs }}</h2>
+                                    <h2 class="f-light">5</h2>
                                     <p class="mb-0">Jobs</p>
                                 </div>
                                 <span class="icon fa fa-exclamation-circle"></span>

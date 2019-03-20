@@ -32,16 +32,7 @@ class HomeController extends Controller
         // if(Auth::user()->email_verified_at == null){
         //     return redirect()->route('verification.resend');
         // }
-        $admins = User::where('view', true)->count();
-        // // $contacts = Contact::all()->count();
-        $applications = Application::all()->count();
-        $subscribers = Subscriber::all()->count();
-        $jobs = Job::all()->count();
-        return view('admin.dashboard')->with('admins', $admins)
-                                        ->with('applications', $applications)
-                                    //   ->with('contacts', $contacts)
-                                        ->with('subscribers', $subscribers)
-                                        ->with('jobs', $jobs)
+        return view('admin.dashboard')
         ;
     }
 
