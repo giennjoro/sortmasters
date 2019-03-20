@@ -28,7 +28,8 @@ class PagesController extends Controller
         return view('client.properties')->with('properties', $properties);
     }
     public function events(){
-        return view('client.events');
+        $events = Event::orderBy('created_at', 'DESC')->where('expiry_date', '>=', date('Y-m-d H:i:s'))->orWhere('expiry_date', null)->get();
+        return view('client.events')->with('events', $events);
     }
     //should be removed.
     public function show($slug){

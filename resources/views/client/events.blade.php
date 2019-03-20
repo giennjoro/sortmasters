@@ -23,18 +23,20 @@
                 <p>View Our scheduled events here.</p>
             </div>
             <div class="row">
-                <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="service-info">
-                        <div class="icon">
-                            <i class="flaticon-calendar"></i>
-                        </div>
-                        <div class="detail">
-                            <h3>Event Name</h3><hr>
-                            <h4 style="color:#422774;">26th March, 2019</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                @foreach($events as $event)
+                    <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="service-info">
+                            <div class="icon">
+                                <i class="flaticon-calendar"></i>
+                            </div>
+                            <div class="detail">
+                                <h3>Event Name</h3><hr>
+                                <h4 style="color:#422774;">26th March, 2019</h4>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endforeach
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="service-info">
                         <div class="icon">

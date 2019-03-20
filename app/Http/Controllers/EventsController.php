@@ -120,14 +120,19 @@ class EventsController extends Controller
         //
         $request->validate([
             'title' => 'required',
-            'date' => 'required',
+            'date' => 'required|date',
             'description' => 'required',
-            'expiry_date' => 'required',
         ]);
+        if($request->expiry_date == null){
+            $expiry_date = $request->date;
+        }
+        else{
+            $expiry_date = $request->expiry_date;
+        }
         $event = Event::where('slug', $slug)->first();
         $event->title = $request->title;
         $event->date = $request->date;
-        $event->expiry_date = $request->expiry_date;
+        $event->expiry_date = $expiry_date;
         $event->slug = str_slug($request->title . $event->id);
         $success = $event->save();
         
