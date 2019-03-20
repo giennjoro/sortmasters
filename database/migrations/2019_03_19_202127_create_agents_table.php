@@ -18,7 +18,7 @@ class CreateAgentsTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('phone');
-            $table->string('image')->nullable();
+            $table->string('image')->default('default/download.jpg');
         });
     }
 

@@ -61,9 +61,7 @@ class AgentController extends Controller
 
         $agent->save();
 
-        dd('success');
-
-        return redirect('/admin/agents')->with('success','Agent Added Successfully');
+        return redirect('/administrator/agents')->with('success','Agent Added Successfully');
 
     }
 
@@ -86,7 +84,8 @@ class AgentController extends Controller
      */
     public function edit(Agent $agent)
     {
-        //
+        return view('admin.agents.edit')->with('agent',$agent);
+        
     }
 
     /**
@@ -98,7 +97,30 @@ class AgentController extends Controller
      */
     public function update(Request $request, Agent $agent)
     {
-        //
+        if(!$request->hasFile('agent_image') && $request->has('agent_image')){
+            return redirect()->back()->with('error','Image not supported');
+        }
+        $this->validate($request, [
+            'name' => 'required',
+            'phone' => 'required',
+        ]);
+
+        //UPDATE AGENT
+        $agent->name = $request->name;
+        $agent ->phone = $request->phone;
+
+        if($request->hasFile('agent_image')){
+            $image = $request->agent_image;
+            $new_image = Image::make($image->getRealPath())->resize(360, 300);
+            $image_name = time() . $image->getClientOriginalName();
+            $new_image->save(public_path('uploads/agents/' .$image_name));
+            $agent->image = 'uploads/agents/' . $image_name;
+        }
+
+        $agent->save();
+
+        return redirect('/administrator/agents')->with('success','Agent Added Successfully');
+  
     }
 
     /**
@@ -109,6 +131,13 @@ class AgentController extends Controller
      */
     public function destroy(Agent $agent)
     {
-        //
+
+       
+        $image = $agent->image;
+        $agent->delete();
+
+        File::delete($image);
+
+        return redirect('/administrator/agents')->with('success','Agent Deleted Successfully');
     }
 }

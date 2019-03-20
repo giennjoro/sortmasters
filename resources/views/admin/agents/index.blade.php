@@ -46,13 +46,13 @@
                         <tbody>
                             @foreach($agents as $agent)
                             <tr class="odd">
-                                <td><img src="../assets/img/user1.html" alt="" class="rounded-circle avatar50 figure">{{$agent->name}}</td>
+                            <td><a href="{{asset($agent->image)}}"><img src="{{asset($agent->image)}}" alt="agent_avatar" class="rounded-circle avatar50 figure"></a>{{$agent->name}}</td>
                                 <td>{{$agent->phone}}</td>
                                 <td>
                                 {!! Form::open(['action' => ['AgentController@destroy',$agent->id], 'method' => 'POST', 'onsubmit' => 'return ConfirmDelete()']) !!}
                                     {{ Form::hidden('_method' ,'DELETE')}}
                                     <div class="form-input">
-                                        <button class="btn danger btn-sm" type="submit"><i class="fa fa-trash"></i> </button>
+                                        <button style="background:none; padding:0; color:red; border:none;" type="submit"><i class="fa fa-trash"></i></button>
                                         <a href="{{ route('agents.edit', ['id' => $agent->id]) }}" class="btn btn-info btn-sm" style="background-color: transparent; border: 0px" ><i class="fa fa-eye" style="color: green"></i></a>
                                     </div>
                                 {!! Form::close() !!}
