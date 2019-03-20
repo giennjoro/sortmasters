@@ -44,12 +44,12 @@
                     </div>
                     <div class="form-group float-label">
                         <span style="color: red">*</span>
-                        <input name='date' type="text" class="form-control" value="{{ $event->date }}" required>
+                        <input name='date' type="date" class="form-control" value="{{ $event->date }}" required>
                         <label>Event Date</label>
                     </div>
                     <div class="form-group float-label">
-                        <span style="color: red">*</span>
-                        <input name='expiry_date' type="date" class="form-control" value="{{ $event->expiry_date }}" required>
+                        <span style="color: white">.</span>
+                        <input name='expiry_date' type="date" class="form-control" value="{{ $event->expiry_date }}">
                         <label>Expiry Date (mm/dd/yyyy)</label>
                     </div>
                     <button class="btn btn-primary" type="submit"><i class="fa fa-plus"></i> Edit Event</button>

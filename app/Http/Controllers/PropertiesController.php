@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Property;
 use App\Category;
+use App\Agent;
 use Image;
 use Session;
 use File;
@@ -35,7 +36,8 @@ class PropertiesController extends Controller
             return redirect()->route('categories.create')->with('error', 'Sorry, there are no categories. Please add a category first.');
         }
         $categories = Category::all();
-        return view('admin.properties.create')->with('categories', $categories);
+        $agents = Agent::all();
+        return view('admin.properties.create')->with('categories', $categories)->with('agents', $agents);
     }
 
     /**
@@ -64,7 +66,7 @@ class PropertiesController extends Controller
             // $image = $request->image;
             $image_name =  time() . $image->getClientOriginalName();
             $image_new_name = 'uploads/properties/' . $image_name;
-            $new_image = Image::make($image->getRealPath())->resize(640, 425);
+            $new_image = Image::make($image->getRealPath())->resize(750, 500);
             $new_image->save($image_new_name);
     
             $image_data[] = $image_new_name; //Storing the public path for the image for record in the database
@@ -174,7 +176,7 @@ class PropertiesController extends Controller
             // $image = $request->image;
             $image_name =  time() . $image->getClientOriginalName();
             $image_new_name = 'uploads/properties/' . $image_name;
-            $new_image = Image::make($image->getRealPath())->resize(640, 425);
+            $new_image = Image::make($image->getRealPath())->resize(750, 500);
             $new_image->save($image_new_name);
     
             $image_data[] = $image_new_name; //Storing the public path for the image for record in the database

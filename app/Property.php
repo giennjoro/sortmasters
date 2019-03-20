@@ -16,4 +16,7 @@ class Property extends Model
     public function category(){
         return $this->belongsTo('App\Category');
     }
+    public function agent(){
+        return $this->belongsTo('App\Agent');
+    }
 }
