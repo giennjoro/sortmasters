@@ -57,7 +57,6 @@
             <li class="nav-item ">
                 <a href="javascript:void(0)" class="menudropdown nav-link">
                     <i class="icon fa fa-users"></i> Agents
-                    <i class="arrow fa fa-angle-down"></i>
                 </a>
                 <ul class="nav flex-column nav-second-level">
                     <li class="nav-item">
@@ -71,18 +70,17 @@
             </li>
             <li class="nav-item ">
                 <a href="javascript:void(0)" class="menudropdown nav-link">
-                    <i class="icon fa fa-users"></i> Events
-                    <i class="arrow fa fa-angle-down"></i>
+                    <i class="icon fa fa-calendar"></i> Events
                 </a>
                 <ul class="nav flex-column nav-second-level">
                     <li class="nav-item">
                         <a href="/administrator/events/create" class="nav-link "> <i class="fa fa-plus"></i> Add Event</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('upcoming_events') }}"> <i class="fa fa-users"></i> Upcoming Events</a>
+                        <a class="nav-link" href="{{ route('upcoming_events') }}"> <i class="fa fa-calendar"></i> Upcoming Events</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/administrator/events"> <i class="fa fa-users"></i> View All Events</a>
+                        <a class="nav-link" href="/administrator/events"> <i class="fa fa-calendar"></i> View All Events</a>
                     </li>
                 </ul>
                 <!-- .nav-second-level / -->

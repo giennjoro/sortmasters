@@ -53,12 +53,23 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'title' => 'required',
+            'description' => 'required',
+            'date' => 'date|required',
+        ]);
+        if($request->expiry_date == null){
+            $expiry_date = $request->date;
+        }
+        else{
+            $expiry_date = $request->expiry_date;
+        }
         $event = Event::create([
             'title' => $request->title,
             'description' => $request->description,
             'user_id' => Auth::user()->id,
             'date' => $request->date,
-            'expiry_date' => $request->expiry_date,
+            'expiry_date' => $expiry_date,
             'slug' => str_slug($request->title),
         ]);
         $event->slug = str_slug($request->title . $event->id);
@@ -126,7 +137,7 @@ class EventsController extends Controller
         else{
             Session::flash('error', 'Event could not be updated successifully');
         }
-        return redirect()->route('events.show', ['slug' => $slug]);
+        return redirect()->route('events.show', ['slug' => $event->slug]);
     }
 
     /**
