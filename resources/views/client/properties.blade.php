@@ -18,12 +18,12 @@
     <div class="properties-section-body content-area">
         <div class="container">
             <div class="row">
-                @if($properties->count() == 0)
-                    <div class="text-center">
-                        <p>There are currently no available properties.</p>
-                    </div>
-                @else
-                    <div class="col-lg-8 col-md-12">
+                <div class="col-lg-8 col-md-12">
+                    @if($properties->count() == 0)
+                        <div class="text-center">
+                            <p>There are currently no available properties.</p>
+                        </div>
+                    @else
                         <div class="row">
                             @foreach($properties as $property)
                                 <div class="col-lg-6 col-md-6 col-sm-12">
@@ -59,9 +59,9 @@
                             @endforeach
                         </div>
                         {{ $properties->links() }}
-                        <!-- Page navigation start -->
-                    </div>
-                @endif
+                    @endif
+                    <!-- Page navigation start -->
+                </div>
                 <div class="col-lg-4 col-md-12">
                     <div class="sidebar-right">
                         <!-- Advanced search start -->

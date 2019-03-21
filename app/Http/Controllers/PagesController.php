@@ -39,15 +39,24 @@ class PagesController extends Controller
         
         // Search for a property based on their price range.
         $property->where('price', '<=', $request->input('max_price'))->where('price', '>=', $request->input('min_price'));
-
+        $searched_category = Category::find($request->category)->name;
         // Get the results and return them.
-        $message = "Location: " . "$request->location" . "<br>Category: " . "$request->category" . "<br>Status: " . "$request->status"  . "<br>Price from: Ksh " . "$request->min_price" . " to Ksh " . "$request->max_price";
+        $message = "Location: " . "$request->location" . "<br>Category: " . "$searched_category" . "<br>Status: " . "$request->status"  . "<br>Price from: Ksh " . "$request->min_price" . " to Ksh " . "$request->max_price";
         $properties = $property->paginate(2);
         $categories = Category::all();
         return view('client.search_results')->with('properties', $properties)
                                             ->with('categories', $categories)            
                                             ->with('message', $message)            
         ;
+
+        // $q = Input::get ( 'q' );
+        // if($q != ""){
+        //     $user = User::where ( 'name', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->paginate (5)->setPath ( '' );
+        //     $pagination = $user->appends ( array ('q' => Input::get ( 'q' )) );
+        //     if (count ( $user ) > 0)
+        //         return view ( 'welcome' )->withDetails ( $user )->withQuery ( $q );
+        // }
+        // return view ( 'welcome' )->withMessage ( 'No Details found. Try to search again !' );
 
     }
 
@@ -60,7 +69,7 @@ class PagesController extends Controller
         return view('client.contact');
     }
     public function properties(){
-        $properties = DB::table('properties')->paginate(2);
+        $properties = DB::table('properties')->paginate(6);
         $categories = Category::all();
         return view('client.properties')->with('properties', $properties)
                                         ->with('categories', $categories)
