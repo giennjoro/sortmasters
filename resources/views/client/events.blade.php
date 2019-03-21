@@ -30,7 +30,7 @@
                                 <i class="flaticon-calendar"></i>
                             </div>
                             <div class="detail">
-                                <h3>$event->title</h3><hr>
+                                <h3>{{ $event->title }}</h3><hr>
                                 <h4 style="color:#422774;">{{ $event->date->format('d') . " " . $event->date->format('M') . ", " . $event->date->format('Y')}}</h4>
                                 <p>{{ $event->description }}</p>
                             </div>

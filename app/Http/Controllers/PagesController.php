@@ -16,8 +16,10 @@ class PagesController extends Controller
         $properties = Property::orderBy('created_at', 'DESC')->get()->take(6);
         return view('client.index')->with('properties', $properties);
     }
+    public function search_property(){
+    
+    }
     public function about(){
-        
         $agents = Agent::all();
         return view('client.about')->with('agents',$agents);
     }
