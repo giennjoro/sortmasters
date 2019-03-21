@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Property;
 use App\Event;
 use App\Agent;
@@ -17,9 +18,10 @@ class PagesController extends Controller
         return view('client.index')->with('properties', $properties);
     }
     public function search_property(Request $request, Property $property){
+        
         $property = $property->newQuery();
 
-        // Search for a property based on their name.
+        // Search for a property based on their location.
         if ($request->location !=null) {
             $property->where('location', 'like', '%' . $request->input('location') . '%');
         }
@@ -39,17 +41,14 @@ class PagesController extends Controller
         $property->where('price', '<=', $request->input('max_price'))->where('price', '>=', $request->input('min_price'));
 
         // Get the results and return them.
-        $message = "Location: " . $request->location;
-        $message = $message . "<br>Category: " . $request->category;
-        $message = $message . "<br>Status: " . $request->status;
-        $message = $message . "<br>Price from: Ksh " . $request->min_price;
-        $message = $message . " to Ksh " . $request->max_price;
-        $properties = $property->get();
+        $message = "Location: " . "$request->location" . "<br>Category: " . "$request->category" . "<br>Status: " . "$request->status"  . "<br>Price from: Ksh " . "$request->min_price" . " to Ksh " . "$request->max_price";
+        $properties = $property->paginate(2);
         $categories = Category::all();
         return view('client.search_results')->with('properties', $properties)
                                             ->with('categories', $categories)            
                                             ->with('message', $message)            
         ;
+
     }
 
 
@@ -61,10 +60,10 @@ class PagesController extends Controller
         return view('client.contact');
     }
     public function properties(){
-        $properties = Property::all();
+        $properties = DB::table('properties')->paginate(2);
         $categories = Category::all();
         return view('client.properties')->with('properties', $properties)
-                                        ->with('categories', $categories)            
+                                        ->with('categories', $categories)
         ;
     }
     public function events(){
@@ -74,7 +73,11 @@ class PagesController extends Controller
     //should be removed.
     public function show($slug){
         $property = Property::where('slug', $slug)->first();
+        $categories = Category::all();
         $images = json_decode($property->image);
-        return view('client.show_property')->with('property', $property)->with('images', $images);
+        return view('client.show_property')->with('property', $property)
+                                           ->with('images', $images)
+                                           ->with('categories', $categories)
+                                           ;
     }
 }

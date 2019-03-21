@@ -24,7 +24,7 @@ Route::get('/properties','PagesController@properties');
 Route::get('/events','PagesController@events');
 Route::post('/contact-us', 'ContactController@contact_us');
 Route::get('/show_property/{slug}','PagesController@show')->name('show_property');
-Route::get('/search_property','PagesController@search_property')->name('search_property');
+Route::any('/search_property','PagesController@search_property')->name('search_property');
 
 
 //admin routes

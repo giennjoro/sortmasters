@@ -7,7 +7,7 @@
                 <h1>Search results for <br> <span class="small">{!! $message !!}</span></h1>
                 <ul class="breadcrumbs">
                     <li><a href="/">Home</a></li>
-                    <li class="active">View All Properties</li>
+                    <li class="active"><a href="/properties">View all properties</a></li>
                 </ul>
             </div>
         </div>
@@ -19,7 +19,6 @@
         <div class="container">
             <div class="row">
                 @if($properties->count() == 0)
-
                     <div class="col-lg-8 col-md-12 text-center">
                         <p>There are no results found. <br><a href="/properties">View all properties</a> </p>
                     </div>
@@ -59,22 +58,7 @@
                                 </div>
                             @endforeach
                         </div>
-                        <!-- Page navigation start -->
-                        <div class="pagination-box p-box-2 text-center">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#"><i class="fa fa-angle-left"></i></a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link active" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                        {{ $properties->links() }}
                     </div>
                 @endif
                 <div class="col-lg-4 col-md-12">
@@ -82,7 +66,8 @@
                         <!-- Advanced search start -->
                         <div class="widget advanced-search">
                             <h3 class="sidebar-title">Search Properties</h3>
-                            <form action="{{ route('search_property') }}" method="GET">
+                            <form action="/search_property" method="POST">
+                                @csrf
                                 <div class="form-group">
                                     <select class="selectpicker search-fields" name="status">
                                         <option value="{{ null }}">All Status</option>
@@ -104,7 +89,7 @@
                                 <div class="range-slider">
                                     <label>Price</label>
                                     <div data-min="0" data-max="5000000"  data-min-name="min_price" data-max-name="max_price" data-unit="Ksh" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                    <div class="cleafrfix"><script type="text/javascript">document.write(currentMin)</script></div>
+                                    <div class="cleafrfix"></div>
                                 </div>
                                 <div class="form-group mb-0">
                                     <button class="search-button">Search</button>
