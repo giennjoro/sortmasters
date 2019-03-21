@@ -129,7 +129,7 @@ class PropertiesController extends Controller
         $images[$cover_image] = $temp;
         $property->image = json_encode($images);
         $property->save();
-        Session::flash('success', 'You successifully changed the cover photo');
+        Session::flash('success', 'You successfully changed the cover photo');
         return redirect()->back();
     }
 
@@ -222,7 +222,7 @@ class PropertiesController extends Controller
             File::delete($image);
         }
         $property->delete();
-        Session::flash('success', 'Property removed successifully');
+        Session::flash('success', 'Property removed successfully');
         return redirect()->route('properties.index');
     }
 }

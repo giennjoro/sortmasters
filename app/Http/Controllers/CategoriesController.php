@@ -48,7 +48,7 @@ class CategoriesController extends Controller
         }
         $category->slug = $slug;
         $category->save();
-        return redirect()->route('categories.index')->with('success', 'You successifully added a category.');
+        return redirect()->route('categories.index')->with('success', 'You successfully added a category.');
     }
 
     /**
@@ -98,7 +98,7 @@ class CategoriesController extends Controller
             $category->slug = $slug;
         }
         $category->save();
-        return redirect()->route('categories.index')->with('success', 'You successifully edited the category.');
+        return redirect()->route('categories.index')->with('success', 'You successfully edited the category.');
     }
 
     /**
@@ -110,6 +110,6 @@ class CategoriesController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->route('categories.index')->with('success', 'You successifully deleted the category.');
+        return redirect()->route('categories.index')->with('success', 'You successfully deleted the category.');
     }
 }
