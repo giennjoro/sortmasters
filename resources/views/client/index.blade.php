@@ -84,7 +84,7 @@
             </div>
             <div class="row">
                 @if($properties->count() == 0)
-                    <p class="text-center">There are no properties uploaded</p>
+                    <p class="text-center">There are currently no properties uploaded</p>
                 @else
                     @foreach($properties as $property)
                         <div class="col-lg-4 col-md-6">

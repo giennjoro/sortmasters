@@ -4,7 +4,7 @@
 <div class="sub-banner">
         <div class="container breadcrumb-area">
             <div class="breadcrumb-areas">
-                <h1>Properties Grid</h1>
+                <h1>Search results for <br> <span class="small">{!! $message !!}</span></h1>
                 <ul class="breadcrumbs">
                     <li><a href="/">Home</a></li>
                     <li class="active">View All Properties</li>
@@ -19,8 +19,9 @@
         <div class="container">
             <div class="row">
                 @if($properties->count() == 0)
-                    <div class="text-center">
-                        <p>There are currently no available properties.</p>
+
+                    <div class="col-lg-8 col-md-12 text-center">
+                        <p>There are no results found. <br><a href="/properties">View all properties</a> </p>
                     </div>
                 @else
                     <div class="col-lg-8 col-md-12">
