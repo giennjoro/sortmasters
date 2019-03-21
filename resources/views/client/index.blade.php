@@ -40,15 +40,15 @@
                     <div class="inline-search-area">
                         <div class="row row-3">
                             <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
-                                <select class="selectpicker search-fields" name="any-status">
+                                <select class="selectpicker search-fields" name="status">
                                     <option>Any Status</option>
                                     <option>For Rent</option>
                                     <option>For Sale</option>
                                 </select>
                             </div>
                             <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
-                                <select class="selectpicker search-fields" name="all-type">
-                                    <option>All Type</option>
+                                <select class="selectpicker search-fields" name="category">
+                                    <option>Category</option>
                                     <option>Apartments</option>
                                     <option>Shop</option>
                                     <option>Restaurant</option>
@@ -56,31 +56,10 @@
                                 </select>
                             </div>
                             <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
-                                <select class="selectpicker search-fields" name="bedrooms">
-                                    <option>Bedrooms</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
+                                <input type="text" class="form-control" placeholder="  Location" name="location">
                             </div>
                             <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
-                                <select class="selectpicker search-fields" name="bathrooms">
-                                    <option>Bathrooms</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                </select>
-                            </div>
-                            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
-                                <select class="selectpicker search-fields" name="location">
-                                    <option>Location</option>
-                                    <option>American</option>
-                                    <option>Florida</option>
-                                    <option>Belgium</option>
-                                    <option>Canada</option>
-                                </select>
+                                <input type="text" class="form-control" placeholder="  Price in KES" name="price">
                             </div>
                             <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
                                 <button class="btn white-btn btn-search btn-block">

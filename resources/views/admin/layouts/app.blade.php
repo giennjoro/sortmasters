@@ -6,8 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- fontawesome icons CSS -->
-	<!-- <link rel="stylesheet" href="{{ asset('admin/css/font-awesome.min.css') }}" type="text/css"> -->
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"> -->
+	
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik:400,500,700%7CSource+Sans+Pro:300i,400,400i,600,700">
 
 	<!-- Custome scrollbar CSS -->
@@ -55,11 +55,10 @@
 	<footer class="footer">
 		<div class="container">
 			<div class="row">
-				<div class="col-12 col-md-6"> &copy2019 Sortmasters Ltd
+			<div class="col-12 col-md-6"> &copy {{date('Y')}} Sortmasters Ltd
 				</div>
 				<div class="col-12 col-md-6 text-right">
-					Developed by </a>
-					<a href="https://www.24seven.co.ke"  target = "blank" class="">24seven Developers</a>
+					All Rights Reserved 
 				</div>
 			</div>
 		</div>
