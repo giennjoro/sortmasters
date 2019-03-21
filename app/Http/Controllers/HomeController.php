@@ -35,7 +35,7 @@ class HomeController extends Controller
         $agents = Agent::all()->count();
         $properties = Property::all()->count();
         $events = Event::all()->count();
-        $upcoming_events = Event::all()->where('expiry_date', '>=', date('Y-m-d H:i:s'))->count();
+        $upcoming_events = Event::orderBy('created_at', 'DESC')->where('expiry_date', '>=', date('Y-m-d H:i:s'))->orWhere('expiry_date', null)->count();
         return view('admin.dashboard')->with('admins', $admins)
                                       ->with('events', $events)
                                       ->with('categories', $categories)
