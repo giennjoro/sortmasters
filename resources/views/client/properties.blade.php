@@ -77,15 +77,15 @@
                             <h3 class="sidebar-title">Search Properties</h3>
                             <form method="GET">
                                 <div class="form-group">
-                                    <select class="selectpicker search-fields" name="all-status">
+                                    <select class="selectpicker search-fields" name="status">
                                         <option>All Status</option>
                                         <option>For Sale</option>
                                         <option>For Rent</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <select class="selectpicker search-fields" name="all-type">
-                                        <option>All Type</option>
+                                    <select class="selectpicker search-fields" name="category">
+                                        <option>Category</option>
                                         <option>Apartments</option>
                                         <option>Shop</option>
                                         <option>Restaurant</option>
@@ -93,48 +93,11 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <select class="selectpicker search-fields" name="commercial">
-                                        <option>Commercial</option>
-                                        <option>Residential</option>
-                                        <option>Land</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="location">
-                                        <option>Location</option>
-                                        <option>American</option>
-                                        <option>Florida</option>
-                                        <option>Belgium</option>
-                                        <option>Canada</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="bedrooms">
-                                                <option>Bedrooms</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="bathroom">
-                                                <option>Bathroom</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
-                                        </div>
-                                    </div>
+                                    <input type="text" class="form-control" placeholder="  Location" name="location">
                                 </div>
                                 <div class="range-slider">
                                     <label>Price</label>
-                                    <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                    <div data-min="0" data-max="5000000"  data-min-name="min_price" data-max-name="max_price" data-unit="Kes" class="range-slider-ui ui-slider" aria-disabled="false"></div>
                                     <div class="clearfix"></div>
                                 </div>
                                 <div class="form-group mb-0">

@@ -90,131 +90,6 @@
                                 <div class="price-location"><span class="property-price">Ksh {{ $property->price }}</span> <span class="rent">{{ $property->status }}</span> <span class="location"><i class="flaticon-pin"></i> {{ $property->location }}</span></div>
                             </div>
                         </div>
-                        <!-- Advanced search start -->
-                        <div class="widget-2 advanced-search bg-grea-2 d-lg-none d-xl-none">
-                            <h3 class="sidebar-title">Search Properties</h3>
-                            <form method="GET">
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="all-status">
-                                        <option>All Status</option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="all-type">
-                                        <option>All Type</option>
-                                        <option>Apartments</option>
-                                        <option>Shop</option>
-                                        <option>Restaurant</option>
-                                        <option>Villa</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="commercial">
-                                        <option>Commercial</option>
-                                        <option>Residential</option>
-                                        <option>Land</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="location">
-                                        <option>Location</option>
-                                        <option>American</option>
-                                        <option>Florida</option>
-                                        <option>Belgium</option>
-                                        <option>Canada</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="bedrooms">
-                                                <option>Bedrooms</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="bathroom">
-                                                <option>Bathroom</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="range-slider">
-                                    <label>Price</label>
-                                    <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <a class="show-more-options" data-toggle="collapse" data-target="#options-content2">
-                                    <i class="fa fa-plus-circle"></i> Other Features
-                                </a>
-                                <div id="options-content2" class="collapse">
-                                    <h3 class="sidebar-title">Amenities</h3>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox9" type="checkbox">
-                                        <label for="checkbox9">
-                                            Air Condition
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox10" type="checkbox">
-                                        <label for="checkbox10">
-                                            Places to seat
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox11" type="checkbox">
-                                        <label for="checkbox11">
-                                            Swimming Pool
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox12" type="checkbox">
-                                        <label for="checkbox12">
-                                            Free Parking
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox13" type="checkbox">
-                                        <label for="checkbox13">
-                                            Central Heating
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox14" type="checkbox">
-                                        <label for="checkbox14">
-                                            Laundry Room
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox15" type="checkbox">
-                                        <label for="checkbox15">
-                                            Window Covering
-                                        </label>
-                                    </div>
-                                    <div class="checkbox checkbox-theme checkbox-circle">
-                                        <input id="checkbox16" type="checkbox">
-                                        <label for="checkbox16">
-                                            Alarm
-                                        </label>
-                                    </div>
-                                    <br>
-                                </div>
-                                <div class="form-group mb-0">
-                                    <button class="search-button">Search</button>
-                                </div>
-                            </form>
-                        </div>
                         @if($property->agent()->count() != 0)
                             <div class="widget recent-properties">
                                 <h3 class="sidebar-title">Property Agent</h3>
@@ -253,75 +128,38 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="sidebar-right">
                         <!-- Advanced search start -->
-                        <div class="widget advanced-search d-none d-xl-block d-lg-block">
-                            <h3 class="sidebar-title">Search Properties</h3>
-                            <form method="GET">
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="all-status">
-                                        <option>All Status</option>
-                                        <option>For Sale</option>
-                                        <option>For Rent</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="all-type">
-                                        <option>All Type</option>
-                                        <option>Apartments</option>
-                                        <option>Shop</option>
-                                        <option>Restaurant</option>
-                                        <option>Villa</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="commercial">
-                                        <option>Commercial</option>
-                                        <option>Residential</option>
-                                        <option>Land</option>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <select class="selectpicker search-fields" name="location">
-                                        <option>Location</option>
-                                        <option>American</option>
-                                        <option>Florida</option>
-                                        <option>Belgium</option>
-                                        <option>Canada</option>
-                                    </select>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="bedrooms">
-                                                <option>Bedrooms</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
-                                        </div>
+                        <div class="widget advanced-search">
+                                <h3 class="sidebar-title">Search Properties</h3>
+                                <form method="GET">
+                                    <div class="form-group">
+                                        <select class="selectpicker search-fields" name="status">
+                                            <option>All Status</option>
+                                            <option>For Sale</option>
+                                            <option>For Rent</option>
+                                        </select>
                                     </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-6">
-                                        <div class="form-group">
-                                            <select class="selectpicker search-fields" name="bathroom">
-                                                <option>Bathroom</option>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                            </select>
-                                        </div>
+                                    <div class="form-group">
+                                        <select class="selectpicker search-fields" name="category">
+                                            <option>Category</option>
+                                            <option>Apartments</option>
+                                            <option>Shop</option>
+                                            <option>Restaurant</option>
+                                            <option>Villa</option>
+                                        </select>
                                     </div>
-                                </div>
-                                <div class="range-slider">
-                                    <label>Price</label>
-                                    <div data-min="0" data-max="150000"  data-min-name="min_price" data-max-name="max_price" data-unit="USD" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="form-group mb-0">
-                                    <button class="search-button">Search</button>
-                                </div>
-                            </form>
-                        </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" placeholder="  Location" name="location">
+                                    </div>
+                                    <div class="range-slider">
+                                        <label>Price</label>
+                                        <div data-min="0" data-max="5000000"  data-min-name="min_price" data-max-name="max_price" data-unit="Kes" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                    <div class="form-group mb-0">
+                                        <button class="search-button">Search</button>
+                                    </div>
+                                </form>
+                            </div>
                     </div>
                 </div>
             </div>

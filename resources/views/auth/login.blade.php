@@ -15,6 +15,7 @@
         <div class="container">
             <div class="card rounded-2 border-0 mb-3 z3 signin-block">
                 <div class="card-body pr-5 pl-5">
+                <img style="margin-left:30%" src="{{asset('favicon.png')}}" alt="logo">
                     <h1 class="display-4 text-center d-block">Admin Login</h1>
                     <br>
                     <form method="POST" action="{{ route('login') }}">
