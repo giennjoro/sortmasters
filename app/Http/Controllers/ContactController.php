@@ -7,25 +7,21 @@ use Mail;
 
 class ContactController extends Controller
 {
-     public function store(Request $request)
-   {
-       $this->validate($request, [
-        'name' => 'required',
-        'phone'=>'required',
-        'email' => 'required|email',
-        'subject'=>'required',
-        'message' => 'required'
-        ]);
-        $email = $request->get('email');
-        
-        $data = array( 'name' => $request->get('name'), 'email' => $request->get('email'), 'subject' => $request->get('subject'), 'user_message' => $request->get('message'), 'phone' => $request->get('phone'));
+    public function contact_us(Request $request){
+
+        $this->validate($request, [
+            'name' => 'required',
+            'subject' => 'required',
+            'phone' => 'required',
+            'message' => 'required'
+            ]);
+        $data = array( 'name' => $request->get('name'), 'email' => $request->get('email'), 'user_message' => $request->get('message'), 'subj' => $request->get('subject'), 'phone' => $request->get('phone'));
 
         Mail::send( 'email', $data, function( $message ) use ($data)
         {
-            $message->to( 'info@kelmasrecruiters.co.ke' )->from( $data['email'])->subject( 'Kelmas Ventures Ltd Contact Form' );
+            $message->to( 'georgenjoroge977@gmail.com' )->from( $data['email'])->subject( 'Sortmasters Contact Form' );
         });
-        
- 
-       return back()->with('success', 'Thanks for contacting us!');
-   }
+
+        return redirect()->back()->with('success','Message Sent Successfully');
+    }
 }

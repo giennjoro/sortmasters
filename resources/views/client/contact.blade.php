@@ -37,7 +37,7 @@
                         <p>Witeithie House, 1st Floor, Left Wing, Rm. No.126</p>
                         <p>Kwame Nkurumah Avenue</p>
                         <p>P.O BOX 3825-0100, Thika</p>
-                        <p>Tel: 0705105001, 0705105009</p>
+                        <p>Tel: 0705105001, 0705105009, 0759935493</p>
                     </div>
                     <div class="col-md-3 col-sm-6 mrg-btn-50">
                         <h4 style="color:rgb(240, 52, 51);">Meru Branch</h4><hr>
@@ -49,32 +49,32 @@
                         <h4 style="color:rgb(240, 52, 51);">Nakuru Branch</h4><hr>
                         <p>Hoska Plaza, 2nd Floor</p>
                         <p>Pandit Nehru Road</p>
-                        <p>Tel: 0700766314</p>
+                        <p>Tel: 0711180350</p>
                     </div>
                 </div>
             </div>
-            <form action="#" method="GET" enctype="multipart/form-data">
+        <form method="POST" action="{{url('/contact-us')}}" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="row">
                             <div class="col-md-6 text-left">
                                 <div class="form-group name">
-                                    <input type="text" name="name" class="form-control" placeholder="Name">
+                                    <input type="text" name="name" class="form-control" placeholder="Name" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group email">
-                                    <input type="email" name="email" class="form-control" placeholder="Email">
+                                    <input type="email" name="email" class="form-control" placeholder="Email" >
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group subject">
-                                    <input type="text" name="subject" class="form-control" placeholder="Subject">
+                                    <input type="text" name="subject" class="form-control" placeholder="Subject" required>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group number">
-                                    <input type="text" name="phone" class="form-control" placeholder="Number">
+                                    <input type="text" name="phone" class="form-control" placeholder="Phone number" required>
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -91,15 +91,15 @@
                     </div>
                     <div class="col-lg-4">
                         <div class="opening-hours">
-                            <h3>Opening Hours</h3>
+                            <h3>Open Hours</h3>
                             <ul class="list-style-none">
                                 <li><strong>Sunday</strong> <span class="text-red"> closed</span></li>
-                                <li><strong>Monday</strong> <span> 7 AM - 7 PM</span></li>
-                                <li><strong>Tuesday </strong> <span> 7 AM - 7 PM</span></li>
-                                <li><strong>Wednesday </strong> <span> 7 AM - 7 PM</span></li>
-                                <li><strong>Thursday </strong> <span> 7 AM - 7 PM</span></li>
-                                <li><strong>Friday </strong> <span> 7 AM - 7 PM</span></li>
-                                <li><strong>Saturday </strong> <span> 7 AM - 7 PM</span></li>
+                                <li><strong>Monday</strong> <span> 8 AM - 5 PM</span></li>
+                                <li><strong>Tuesday </strong> <span> 8 AM - 5 PM</span></li>
+                                <li><strong>Wednesday </strong> <span> 8 AM - 5 PM</span></li>
+                                <li><strong>Thursday </strong> <span> 8 AM - 5 PM</span></li>
+                                <li><strong>Friday </strong> <span> 8 AM - 5 PM</span></li>
+                                <li><strong>Saturday </strong> <span> 8 AM - 1 PM</span></li>
                             </ul>
                         </div>
                     </div>

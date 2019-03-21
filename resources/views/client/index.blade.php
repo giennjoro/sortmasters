@@ -8,13 +8,13 @@
                     <img class="d-block w-100 h-100" src="{{ asset('client/img/banner/banner-1.jpg') }}" alt="banner">
                 </div>
                 <div class="carousel-item banner-max-height">
-                    <img class="d-block w-100 h-100" src="{{ asset('client/img/banner/banner-1.jpg') }}" alt="banner">
+                    <img class="d-block w-100 h-100" src="{{ asset('client/img/banner/banner-3.jpg') }}" alt="banner">
                 </div>
                 <div class="carousel-item banner-max-height">
-                    <img class="d-block w-100 h-100" src="{{ asset('client/img/banner/banner-1.jpg') }}" alt="banner">
+                    <img class="d-block w-100 h-100" src="{{ asset('client/img/banner/banner-4.jpg') }}" alt="banner">
                 </div>
                 <div class="carousel-content container banner-info-2">
-                    <h1 style="color:rgb(72, 45, 122);">Service You Deserve, People You Trust</h1>
+                    <h1 >Service You Deserve, People You Trust</h1>
                     <p>Real Estate Managers, Property Consultants & Valuers</p>
                 </div>
             </div>
@@ -347,7 +347,7 @@
     </div>
     <!-- advantages end -->
 
-    <!-- Our events -->
+    {{-- <!-- Our events -->
     <div class="our-team content-area">
         <div class="container">
             <!-- Main title -->
@@ -375,7 +375,7 @@
             </div>
         </div>
     </div>
-    <!-- Our events end -->
+    <!-- Our events end --> --}}
 
     <!-- Intro section start -->
     <div class="intro-section">

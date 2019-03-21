@@ -21,6 +21,9 @@
         <link rel="stylesheet" type="text/css"  href="{{ asset('client/css/dropzone.css') }}">
         <link rel="stylesheet" type="text/css"  href="{{ asset('client/css/slick.css') }}">
 
+        {{-- toastr --}}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+
         <!-- Custom stylesheet -->
         <link rel="stylesheet" type="text/css" href="{{ asset('client/css/style.css') }}">
         <link rel="stylesheet" type="text/css" id="style_sheet" href="{{ asset('client/css/skins/default.css') }}">
@@ -202,5 +205,13 @@
     <script  src="{{ asset('js/ie10-viewport-bug-workaround.js') }}"></script>
     <!-- Custom javascript -->
     <script  src="{{ asset('js/ie10-viewport-bug-workaround.js') }}"></script>
+
+    {{-- toastr --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    @if(session('success'))
+    <script>
+		toastr.success('{{session('success')}}');
+    </script>
+    @endif
     </body>
 </html>
