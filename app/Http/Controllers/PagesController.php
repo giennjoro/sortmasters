@@ -13,7 +13,8 @@ class PagesController extends Controller
 {
 
     public function index(){
-        return view('client.index');
+        $properties = Property::orderBy('created_at', 'DESC')->get()->take(6);
+        return view('client.index')->with('properties', $properties);
     }
     public function about(){
         

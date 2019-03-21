@@ -165,32 +165,33 @@ class PropertiesController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'location' => 'required',
-            'image' => 'required',
             'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price' => 'required',
             'category_id' => 'required',
             'description' => 'required',
         ]);
         $image_data = json_decode($property->image);
-        foreach($request->file('image') as $image){
-            // $image = $request->image;
-            $image_name =  time() . $image->getClientOriginalName();
-            $image_new_name = 'uploads/properties/' . $image_name;
-            $new_image = Image::make($image->getRealPath())->resize(750, 500);
-            $new_image->save($image_new_name);
-    
-            $image_data[] = $image_new_name; //Storing the public path for the image for record in the database
+        if($request->image != null){
+            foreach($request->file('image') as $image){
+                // $image = $request->image;
+                $image_name =  time() . $image->getClientOriginalName();
+                $image_new_name = 'uploads/properties/' . $image_name;
+                $new_image = Image::make($image->getRealPath())->resize(750, 500);
+                $new_image->save($image_new_name);
+        
+                $image_data[] = $image_new_name; //Storing the public path for the image for record in the database
+            }
         }
+       
         $slug = str_slug($request->title);
-        $property = Property::create([
-            'title' =>$request->title,
-            'price' =>$request->price,
-            'location' =>$request->location,
-            'description' =>$request->description,
-            'status' =>$request-> status,
-            'category_id' =>$request-> category_id,
-            'image' => json_encode($image_data),
-        ]);
+        $property->title = $request->title;
+        $property->price = $request->price;
+        $property->location = $request->location;
+        $property->description = $request->description;
+        $property->status = $request->status;
+        $property->category_id = $request->category_id;
+        $property->image = json_encode($image_data);
+
 
         if($request->has('agent_id')){
             $property->agent_id = $request->agent_id;
