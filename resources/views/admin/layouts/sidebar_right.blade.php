@@ -42,7 +42,7 @@
                                     @endif
                                 </span>
                             </h4>
-                            <a href="{{ route('users.show', ['id' => Auth::user()->id]) }}" class="btn btn-success">
+                            <a href="{{ route('users.show', ['id' => Auth::user()->slug]) }}" class="btn btn-success">
                                 <p>Click here to view your profile</p>
                             </a>
 

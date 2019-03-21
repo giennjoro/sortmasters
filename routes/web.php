@@ -23,8 +23,8 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/properties','PagesController@properties');
 Route::get('/events','PagesController@events');
 Route::post('/contact-us', 'ContactController@contact_us');
-Route::get('/show_property','PagesController@show');//for viewing purpose only.This route should be removed.
-Route::get('/show_property/{slug}','PagesController@show')->name('show_property');//for viewing purpose only.This route should be removed.
+Route::get('/show_property/{slug}','PagesController@show')->name('show_property');
+Route::any('/search_property','PagesController@search_property')->name('search_property');
 
 
 //admin routes

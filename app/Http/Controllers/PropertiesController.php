@@ -118,7 +118,8 @@ class PropertiesController extends Controller
     public function edit(Property $property)
     {
         $categories = Category::all();
-        return view('admin.properties.edit', ['property' => $property, 'categories'=> $categories]);
+        $agents = Agent::all();
+        return view('admin.properties.edit', ['property' => $property, 'categories'=> $categories])->with('agents', $agents);
     }
 
     public function cover_photo(Property $property, $cover_image)

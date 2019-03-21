@@ -152,7 +152,7 @@
                                     <div class="media mb-4">
                                         <div class="media-body align-self-center">
                                             <h5>
-                                                <a href="javascript:void(0)">{{ $event->title }}</a>
+                                                <a href="/events">{{ $event->title }}</a>
                                             </h5>
                                             <div class="listing-post-meta">
                                                 <a href="javascript:void(0)"><i class="fa fa-calendar"></i> {{ $event->date->format('d') . " " . $event->date->format('M') . " " . $event->date->format('Y')}} </a>

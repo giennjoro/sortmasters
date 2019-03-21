@@ -4,10 +4,10 @@
 <div class="sub-banner">
         <div class="container breadcrumb-area">
             <div class="breadcrumb-areas">
-                <h1>Properties Grid</h1>
+                <h1>Search results for <br> <span class="small">{!! $message !!}</span></h1>
                 <ul class="breadcrumbs">
                     <li><a href="/">Home</a></li>
-                    <li class="active">View All Properties</li>
+                    <li class="active"><a href="/properties">View all properties</a></li>
                 </ul>
             </div>
         </div>
@@ -19,8 +19,8 @@
         <div class="container">
             <div class="row">
                 @if($properties->count() == 0)
-                    <div class="text-center">
-                        <p>There are currently no available properties.</p>
+                    <div class="col-lg-8 col-md-12 text-center">
+                        <p>There are no results found. <br><a href="/properties">View all properties</a> </p>
                     </div>
                 @else
                     <div class="col-lg-8 col-md-12">
@@ -59,7 +59,6 @@
                             @endforeach
                         </div>
                         {{ $properties->links() }}
-                        <!-- Page navigation start -->
                     </div>
                 @endif
                 <div class="col-lg-4 col-md-12">
@@ -67,7 +66,7 @@
                         <!-- Advanced search start -->
                         <div class="widget advanced-search">
                             <h3 class="sidebar-title">Search Properties</h3>
-                            <form action="{{ route('search_property') }}" method="POST">
+                            <form action="/search_property" method="POST">
                                 @csrf
                                 <div class="form-group">
                                     <select class="selectpicker search-fields" name="status">

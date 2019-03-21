@@ -140,7 +140,12 @@
 										<div class="media">
 											<div class="media-body">
 												<h5>Agent:</h5>
-												{{ $property->agent }}
+												@if($property->agent()->count() == 0)
+													No Associated Agent
+												@else
+													<a href="{{asset($property->agent->image)}}"><img src="{{asset($property->agent->image)}}" alt="agent_avatar" class="rounded-circle avatar50 figure"></a>
+													<a href="{{ route('agents.index') }}">{{ $property->agent->name }} | {{ $property->agent->phone }}</a>
+												@endif
 											</div>
 										</div>
 									</div>

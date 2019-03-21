@@ -129,36 +129,35 @@
                     <div class="sidebar-right">
                         <!-- Advanced search start -->
                         <div class="widget advanced-search">
-                                <h3 class="sidebar-title">Search Properties</h3>
-                                <form method="GET">
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" name="status">
-                                            <option>All Status</option>
-                                            <option>For Sale</option>
-                                            <option>For Rent</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <select class="selectpicker search-fields" name="category">
-                                            <option>Category</option>
-                                            <option>Apartments</option>
-                                            <option>Shop</option>
-                                            <option>Restaurant</option>
-                                            <option>Villa</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="  Location" name="location">
-                                    </div>
-                                    <div class="range-slider">
-                                        <label>Price</label>
-                                        <div data-min="0" data-max="5000000"  data-min-name="min_price" data-max-name="max_price" data-unit="Kes" class="range-slider-ui ui-slider" aria-disabled="false"></div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="form-group mb-0">
-                                        <button class="search-button">Search</button>
-                                    </div>
-                                </form>
+                            <h3 class="sidebar-title">Search Properties</h3>
+                            <form action="{{ route('search_property') }}" method="GET">
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields" name="status">
+                                        <option value="{{ null }}">All Status</option>
+                                        <option value="sale">For Sale</option>
+                                        <option value="rent">For Rent</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <select class="selectpicker search-fields" name="category">
+                                        <option value="{{ null }}">All categories</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">Category</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Location" name="location">
+                                </div>
+                                <div class="range-slider">
+                                    <label>Price</label>
+                                    <div data-min="0" data-max="5000000"  data-min-name="min_price" data-max-name="max_price" data-unit="Ksh" class="range-slider-ui ui-slider" aria-disabled="false"></div>
+                                    <div class="cleafrfix"></div>
+                                </div>
+                                <div class="form-group mb-0">
+                                    <button class="search-button">Search</button>
+                                </div>
+                            </form>
                             </div>
                     </div>
                 </div>
