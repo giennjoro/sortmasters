@@ -33,45 +33,53 @@
     <!-- Banner end -->
 
     <!-- Search box 2 start -->
-    <div class="search-box-2">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="inline-search-area">
-                        <div class="row row-3">
-                            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
-                                <select class="selectpicker search-fields" name="status">
-                                    <option>Any Status</option>
-                                    <option>For Rent</option>
-                                    <option>For Sale</option>
-                                </select>
-                            </div>
-                            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
-                                <select class="selectpicker search-fields" name="category">
-                                    <option>Category</option>
-                                    <option>Apartments</option>
-                                    <option>Shop</option>
-                                    <option>Restaurant</option>
-                                    <option>Villa</option>
-                                </select>
-                            </div>
-                            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
-                                <input type="text" class="form-control" placeholder="  Location" name="location">
-                            </div>
-                            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
-                                <input type="text" class="form-control" placeholder="  Price in KES" name="price">
-                            </div>
-                            <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
-                                <button class="btn white-btn btn-search btn-block">
-                                    <i class="fa fa-search"></i><strong>Find</strong>
-                                </button>
+    <form action="{{ route('search_property') }}" method="POST">
+        @csrf
+        <div class="search-box-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="inline-search-area">
+                            <div class="row row-3" id="form_content1">
+
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
+                                    <select class="selectpicker search-fields" name="status">
+                                    <option value="{{ null }}">All Status</option>
+                                        <option value="sale">For Sale</option>
+                                        <option value="rent">For Rent</option>
+                                    </select>
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
+                                    <select class="selectpicker search-fields" name="category">
+                                        <option value="{{ null }}">All categories</option>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
+                                    <input type="text" class="form-control" placeholder="  Location" name="location">
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
+                                    <input type="text" class="form-control" placeholder="  Price in KES" name="max_price">
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col" style="display:none">
+                                    <input type="text" class="form-control" value="0" name="min_price">
+                                </div>
+                                <div class="col-xl-2 col-lg-2 col-md-4 col-sm-6 col-xs-12 search-col">
+                                    <button class="btn white-btn btn-search btn-block" type="submit">
+                                        <i class="fa fa-search"></i><strong>Find</strong>
+                                    </button>
+                                </div>
+                                
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+
+    </form>
     <!-- Search box 2 end -->
 
     <!-- Featured Properties start -->
