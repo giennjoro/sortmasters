@@ -74,7 +74,7 @@ class EventsController extends Controller
         ]);
         $event->slug = str_slug($request->title . $event->id);
         $event->save();
-        Session::flash('success', 'You successifully added an event.');
+        Session::flash('success', 'You successfully added an event.');
         return redirect()->route('upcoming_events');
     }
 
@@ -137,10 +137,10 @@ class EventsController extends Controller
         $success = $event->save();
         
         if($success){
-            Session::flash('success', 'Event updated successifully.')    ;
+            Session::flash('success', 'Event updated successfully.')    ;
         }
         else{
-            Session::flash('error', 'Event could not be updated successifully');
+            Session::flash('error', 'Event could not be updated successfully');
         }
         return redirect()->route('events.show', ['slug' => $event->slug]);
     }
@@ -157,7 +157,7 @@ class EventsController extends Controller
         $event = Event::where('slug', $slug)->first();
         $success = $event->delete();
         if($success){
-            Session::flash('success', 'Event deleted successifully');
+            Session::flash('success', 'Event deleted successfully');
             return redirect()->route('events.index');
         }
         

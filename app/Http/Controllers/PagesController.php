@@ -17,7 +17,7 @@ class PagesController extends Controller
         return view('client.index')->with('properties', $properties);
     }
     public function search_property(){
-    
+        
     }
     public function about(){
         $agents = Agent::all();

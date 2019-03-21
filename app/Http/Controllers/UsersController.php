@@ -77,7 +77,7 @@ class UsersController extends Controller
                 $user->save();
             }
             if($user){
-                Session::flash('success', $user->name . ' was successifully added.');
+                Session::flash('success', $user->name . ' was successfully added.');
                 return redirect()->route('users.index');
             }
         }
@@ -185,7 +185,7 @@ class UsersController extends Controller
             $result = $user->save();
 
             if($result){
-                Session::flash('success', 'You successifully updated the admin profile.');
+                Session::flash('success', 'You successfully updated the admin profile.');
                 return redirect()->route('users.show', ['slug' => $new_slug]);
             }
 
@@ -220,7 +220,7 @@ class UsersController extends Controller
                 return redirect()->back();
             }
             $user->delete();
-            Session::flash('success', 'Admin removed successifully');
+            Session::flash('success', 'Admin removed successfully');
             return redirect()->route('users.index');
         }
         Session::flash('error', 'Admin could not be removed! Task only allowed to Supper Admin!');
