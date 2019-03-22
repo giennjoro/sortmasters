@@ -98,7 +98,7 @@
                         <div class="col-lg-4 col-md-6">
                             <div class="property-box">
                                 <div class="property-thumbnail">
-                                    <a href="/show_property" class="property-img">
+                                    <a href="/show_property/{{ $property->slug }}" class="property-img">
                                         <div class="tag">@if($property->status == "sale")sale @else rent @endif</div>
                                         <div class="price-box"><span>Ksh. {{ $property->price }}</span>@if($property->status == "sale") @else monthly @endif</div>
                                         <img class="d-block w-100" src="{{ asset(json_decode($property->image)[0]) }}" alt="properties">
@@ -106,11 +106,11 @@
                                 </div>
                                 <div class="detail">
                                     <h1 class="title">
-                                        <a href="/show-property">{{ $property->title }}</a>
+                                        <a href="/show-property/{{ $property->slug }}">{{ $property->title }}</a>
                                     </h1>
                                     <div class="location">
                                         <a href="properties-details.html">
-                                            {{ $property->description }}
+                                            {{ $property->category->name }}
                                         </a>
                                     </div>
                                     <ul class="facilities-list clearfix">
