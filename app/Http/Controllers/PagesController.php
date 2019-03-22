@@ -14,8 +14,11 @@ class PagesController extends Controller
 {
 
     public function index(){
+        $categories = Category::all();
         $properties = Property::orderBy('created_at', 'DESC')->get()->take(6);
-        return view('client.index')->with('properties', $properties);
+        return view('client.index')->with('properties', $properties)
+                                   ->with('categories', $categories)
+                                   ;
     }
     public function search_property(Request $request, Property $property){
         
@@ -26,7 +29,9 @@ class PagesController extends Controller
             $property->where('location', 'like', '%' . $request->input('location') . '%');
         }
         // Search for a property based on their category.
+        $searched_category = null;
         if ($request->category != null) {
+            $searched_category = Category::find($request->category)->name;
             $property->whereHas('category', function ($query) use ($request) {
                 $query->where('category_id', $request->input('category'));
             });
@@ -38,8 +43,10 @@ class PagesController extends Controller
         }
         
         // Search for a property based on their price range.
-        $property->where('price', '<=', $request->input('max_price'))->where('price', '>=', $request->input('min_price'));
-        $searched_category = Category::find($request->category)->name;
+        if ($request->max_price != null) {
+            $property->where('price', '<=', $request->input('max_price'))->where('price', '>=', $request->input('min_price'));
+        }
+        
         // Get the results and return them.
         $message = "Location: " . "$request->location" . "<br>Category: " . "$searched_category" . "<br>Status: " . "$request->status"  . "<br>Price from: Ksh " . "$request->min_price" . " to Ksh " . "$request->max_price";
         $properties = $property->paginate(2);

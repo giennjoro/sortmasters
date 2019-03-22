@@ -80,7 +80,7 @@
                                     <select class="selectpicker search-fields" name="category">
                                         <option value="{{ null }}">All categories</option>
                                         @foreach($categories as $category)
-                                            <option value="{{ $category->id }}">Category</option>
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
