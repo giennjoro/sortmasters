@@ -41,12 +41,12 @@
                                             </h1>
                                             <div class="location">
                                                 <a href="properties-details.html">
-                                                    {{ $property->description }} .
+                                                    {{ $property->category->name }} .
                                                 </a>
                                             </div> 
                                             <ul class="facilities-list clearfix">
                                                 <li>
-                                                    <i class="lnr lnr-apartment"></i> {{ $property->category->name }}
+                                                    <i class="lnr lnr-apartment"></i> {{ $property->status }}
                                                 </li>
                                                 <li>
                                                     <i class="flaticon-pin"></i> {{ $property->location }}
