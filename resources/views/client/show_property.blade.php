@@ -64,26 +64,6 @@
                                         {{ $n++  }}
                                     </div>
                                 @endforeach
-                                <!-- <li class="list-inline-item">
-                                    <a id="carousel-selector-1" data-slide-to="1" data-target="#propertiesDetailsSlider">
-                                        <img src="{{ asset('client/img/properties/properties-2.jpg') }}" class="img-fluid" alt="properties-small">
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a id="carousel-selector-2" data-slide-to="2" data-target="#propertiesDetailsSlider">
-                                        <img src="{{ asset('client/img/properties/properties-3.jpg') }}" class="img-fluid" alt="properties-small">
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a id="carousel-selector-3" data-slide-to="3" data-target="#propertiesDetailsSlider">
-                                        <img src="{{ asset('client/img/properties/properties-4.jpg') }}" class="img-fluid" alt="properties-small">
-                                    </a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a id="carousel-selector-4" data-slide-to="4" data-target="#propertiesDetailsSlider">
-                                        <img src="{{ asset('client/img/properties/properties-5.jpg') }}" class="img-fluid" alt="properties-small">
-                                    </a>
-                                </li> -->
                             </ul>
                             <div class="heading-properties-2">
                                 <h3>{{ $property->title }}</h3>
@@ -142,7 +122,7 @@
                                     <select class="selectpicker search-fields" name="category">
                                         <option value="{{ null }}">All categories</option>
                                         @foreach($categories as $category)
-                                            <option value="{{ $category->id }}">Category</option>
+                                            <option value="{{ $category->id }}">{{ $category->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

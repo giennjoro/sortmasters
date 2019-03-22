@@ -34,6 +34,9 @@ class PagesController extends Controller
         if (!array_key_exists("max_price",$query))
             $query['max_price'] = null;
         
+        if (!array_key_exists("min_price",$query))
+            $query['min_price'] = null;
+        
         $property = $property->newQuery();
 
         // Search for a property based on their location.
