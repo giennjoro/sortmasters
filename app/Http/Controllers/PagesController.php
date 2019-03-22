@@ -21,49 +21,55 @@ class PagesController extends Controller
                                    ;
     }
     public function search_property(Request $request, Property $property){
+        $query = $request->all();
+        if (!array_key_exists("location",$query))
+            $query['location'] = null;
+        
+        if (!array_key_exists("category",$query))
+            $query['category'] = null;
+        
+        if (!array_key_exists("status",$query))
+            $query['status'] = null;
+        
+        if (!array_key_exists("max_price",$query))
+            $query['max_price'] = null;
+        
+        if (!array_key_exists("min_price",$query))
+            $query['min_price'] = null;
         
         $property = $property->newQuery();
 
         // Search for a property based on their location.
-        if ($request->location !=null) {
-            $property->where('location', 'like', '%' . $request->input('location') . '%');
+        if ($query['location'] !=null) {
+            $property->where('location', 'like', '%' . $query['location'] . '%');
         }
         // Search for a property based on their category.
         $searched_category = null;
-        if ($request->category != null) {
-            $searched_category = Category::find($request->category)->name;
-            $property->whereHas('category', function ($query) use ($request) {
-                $query->where('category_id', $request->input('category'));
-            });
+        if ($query['category'] !=null) {
+            $searched_category = Category::find($query['category'])->name;
+            $property->where('category_id', $query['category']);
         }
 
-        // Search for a property based on their status.
-        if ($request->status != null) {
-            $property->where('status', $request->input('status'));
+        // // Search for a property based on their status.
+        if ($query['status'] != null) {
+            $property->where('status', $query['status']);
         }
         
-        // Search for a property based on their price range.
-        if ($request->max_price != null) {
-            $property->where('price', '<=', $request->input('max_price'))->where('price', '>=', $request->input('min_price'));
+        // // Search for a property based on their price range.
+        if ($query['max_price'] != null) {
+            $property->where('price', '<=', $query['max_price'])->where('price', '>=', $query['min_price']);
         }
         
         // Get the results and return them.
-        $message = "Location: " . "$request->location" . "<br>Category: " . "$searched_category" . "<br>Status: " . "$request->status"  . "<br>Price from: Ksh " . "$request->min_price" . " to Ksh " . "$request->max_price";
-        $properties = $property->paginate(2);
+        $message = "Location: " . $query['location'] . "<br>Category: " . $searched_category . "<br>Status: " . $query['status']  . "<br>Price from: Ksh " . $query['min_price'] . " to Ksh " . $query['max_price'];
+        $properties = $property->paginate(6)->setPath ( '' );
+        $pagination = $properties->appends ( $query );
         $categories = Category::all();
         return view('client.search_results')->with('properties', $properties)
                                             ->with('categories', $categories)            
-                                            ->with('message', $message)            
+                                            ->with('message', $message)
+                                            ->withQuery ( $query )            
         ;
-
-        // $q = Input::get ( 'q' );
-        // if($q != ""){
-        //     $user = User::where ( 'name', 'LIKE', '%' . $q . '%' )->orWhere ( 'email', 'LIKE', '%' . $q . '%' )->paginate (5)->setPath ( '' );
-        //     $pagination = $user->appends ( array ('q' => Input::get ( 'q' )) );
-        //     if (count ( $user ) > 0)
-        //         return view ( 'welcome' )->withDetails ( $user )->withQuery ( $q );
-        // }
-        // return view ( 'welcome' )->withMessage ( 'No Details found. Try to search again !' );
 
     }
 
@@ -75,8 +81,8 @@ class PagesController extends Controller
     public function contact(){
         return view('client.contact');
     }
-    public function properties(){
-        $properties = DB::table('properties')->paginate(6);
+    public function properties(Property $property){
+        $properties = $property->newQuery()->paginate(6);
         $categories = Category::all();
         return view('client.properties')->with('properties', $properties)
                                         ->with('categories', $categories)
