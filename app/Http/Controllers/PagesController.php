@@ -92,6 +92,9 @@ class PagesController extends Controller
         $events = Event::orderBy('created_at', 'DESC')->where('expiry_date', '>=', date('Y-m-d H:i:s'))->orWhere('expiry_date', null)->get();
         return view('client.events')->with('events', $events);
     }
+    public function services(){
+        return view('client.services');
+    }
     //should be removed.
     public function show($slug){
         $property = Property::where('slug', $slug)->first();

@@ -63,6 +63,7 @@
                     <ul class="navbar-nav header-ml">
                        <li class="nav-item"><a class="nav-link" href="/"> <b style="color:rgb(240, 52, 51);"> Home</b></a></li>
                         <li class="nav-item"><a class="nav-link" href="/about"><b style="color:rgb(240, 52, 51);"> About</b></a></li>
+                        <li class="nav-item"><a class="nav-link" href="/services"><b style="color:rgb(240, 52, 51);">Services</b></a></li>
                         <li class="nav-item"><a class="nav-link" href="/events"><b style="color:rgb(240, 52, 51);"> Events</b></a></li>
                         <li class="nav-item "><a class="nav-link" href="/contact"><b style="color:rgb(240, 52, 51);"> Contact Us</b></a></li>
                         

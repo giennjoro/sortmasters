@@ -22,6 +22,7 @@ Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/properties','PagesController@properties');
 Route::get('/events','PagesController@events');
+Route::get('/services','PagesController@services');
 Route::post('/contact-us', 'ContactController@contact_us');
 Route::get('/show_property/{slug}','PagesController@show')->name('show_property');
 Route::any('/search_property','PagesController@search_property')->name('search_property');
